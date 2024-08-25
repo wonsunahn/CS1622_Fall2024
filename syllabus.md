@@ -170,15 +170,9 @@ other's questions!
 
 ## In-Person Attendance
 
-This is fully in-person class.  I will allow remote participation only in the
-following two exceptional circumstances:
-
-_1. If you have a family or medical emergency that would cause you to miss
-class.  Rather than miss class, if you are able to participate over Zoom, I
-will allow it._
-
-_2. If you have to quarantine due to contact with COVID.  Either you have a
-positive test result or you are waiting for test results._
+This is fully in-person class.  I will allow remote participation only if you
+have a family or medical emergency that would otherwise cause you to miss
+class.  Rather than have you miss class, I will allow remote participation.
 
 For the above exceptions, I will create Zoom sessions on demand.  These Zoom
 sessions are only available to affected students and are protected by a
