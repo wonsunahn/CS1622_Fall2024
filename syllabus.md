@@ -158,10 +158,10 @@ should see options to initiate a chat, email, or a call with that individual.
 
     For the fastest response, please use Teams chat.
 
-When you ask a source-code-specific question about an exercise or deliverable,
-please submit your code to GradeScope first so that I can reproduce your error.
-Also, describe precisely the steps I should take to reproduce your error.
-Before you do this, it is very hard for me to help you.
+When you ask a source-code-specific question, please submit your code to
+GradeScope first so that I can reproduce your error.  Also, describe precisely
+the steps I should take to reproduce your error.  Before you do this, it is
+very hard for me to help you.
 
 I will try to get back to all offline communications within 24 hours of
 receipt.  Even if I'm logged onto Teams, please understand that I may be away
