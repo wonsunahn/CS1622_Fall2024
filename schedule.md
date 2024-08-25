@@ -3,178 +3,311 @@ CS1622 Compiler Design
 
 ## WEEK 1 (Week of 26 AUG)
 
-* Class 1
-  * Lecture: Course Introduction, Testing Theory (READING: AFIST, Chapters 2 - 4)
-  * Assignment releases
-    * Partnership Contract on GradeScope
-    * [Java Assessment Exercise](exercises/0)
+* READINGS: Textbook, Chapters 1.1-1.5, 3.1-3.5
+
+* TOPICS:
+  * Course Introduction
+    * Why learn Compilers?
+    * What is a Compiler?
+    * Front End / Back End of a Compiler
+    * Challenges facing Compilers
+  * Lexical Analysis 
+    * Tokens
+    * Regular Languages
+    * Regular Expressions
+    * Lex Tool
   
-* Class 2
-  * Lecture: Requirements (READING: AFIST, Chapters 5)
-  * Assignment releases
-    * Listen to Test Plans Lecture (READING: AFIST, Chapters 6, 8)
-    * Listen to Defects Lecture (READING: AFIST, Chapters 9)
 
 ## WEEK 2 (Week of 2 SEP)
 
-* Class 1: NO CLASS (Labor Day)
+* READINGS: Textbook, Chapters 3.6-3.8, 3.9.6-3.9.7
 
-* Class 2
-  * In-class exercise: [Exercise 1: Test Plans](exercises/1)
-  * Assignments due before class
-    * Java Assessment Exercise
-    * Partnership Contract on GradeScope
-    * Listen to Test Plans Lecture (READING: AFIST, Chapters 6, 8)
-    * Listen to Defects Lecture (READING: AFIST, Chapters 9)
-  * Assignment releases
-    * [Deliverable 1](deliverables/1)
-    * Listen to Unit Testing Part 1 Lecture (READING: AFIST, Chapter 13)
-    * Listen to Test-driven Development Lecture (READING: AFIST, Chapter 15)
+* TOPICS:
+  * Lexical Analysis cont'd 
+    * Deterministic Finite Automata
+    * Nondeterministic Finite Automata
+    * Regular Expression to NFA 
+    * NFA to DFA
+    * DFA Minimization
+    * DFA to table-driven implementation
+
+* ASSIGNMENTS RELEASED:
+  * Project 1 (Thursday)
+  * Homework 1 (Thursday)
 
 ## WEEK 3 (Week of 9 SEP)
 
-* Class 1 
-  * Lecture: Unit Testing Part 2 (READING: AFIST, Chapter 14)
-  * Assignments due before class
-    * Listen to Unit Testing Part 1 Lecture (READING: AFIST, Chapter 13)
-    * Listen to Test-driven Development Lecture (READING: AFIST, Chapter 15)
+* READINGS: Textbook, Chapters 4.1-4.2
 
-* Class 2: 
-  * In-class exercise: [Exercise 2: Unit Testing](exercises/2)
-  * Assignment releases
-    * [Deliverable 2](deliverables/2)
+* TOPICS:
+  * Syntax Analysis 
+    * Grammars
+      * Noam Chomsky Classification
+    * Languages
+    * Context Free Grammars
+      * Parse Trees
+      * Leftmost / Rightmost Derivations
+      * Ambiguity
+      * Associativity / Precedence
+      * Abstract Syntax Tree
 
 ## WEEK 4 (Week of 16 SEP)
 
-* Class 1
-  * Lecture: Automated vs. Manual Testing (READING: AFIST, Chapter 12), Behavior Driven Development
+* READINGS: Textbook, Chapters 4.3-4.5
 
-* Class 2
-  * In-class exercise: [Supplementary Exercise 1: Behavior Driven Development](exercises/Supplement1)
+* TOPICS:
+  * Top-down Parser 
+    * Recursive descent using backtracking
+      * Removing left-recurion
+    * Predictive
+      * Left factoring
+      * LL(k) parser / grammar / language
+      * Recursive
+      * Nonrecursive (table driven)
+      * Look ahead
+    * Parse Table Construction
+      * First Set
+      * Follow Set
+      * Dealing with conflicts
+
+* ASSIGNMENTS DUE:
+  * Homework 1 (Thursday)
 
 ## WEEK 5 (Week of 23 SEP)
 
-* Class 1
-  * Lecture: Automated System Testing
-  * Assignments due before class
-    * Deliverable 1
+* READINGS: Textbook, Chapters 4.5-4.6
 
-* Class 2
-  * In-class exercise: [Exercise 3: Automated System Testing](exercises/3)
-  * Assignment releases
-    * [Deliverable 3](deliverables/3)
-    * Listen to Writing Testable Code Lecture (READING: AFIST, Chapter 16)
+* TOPICS:
+  * Bottom-up Parser
+    * Handles
+    * Shift-reduce parsing
+    * Conflicts and ambiguity
+  * LR Parsing
+    * Viable Prefix
+    * LR(0) items
+    * Action and Goto Tables
+  * Parse Table Construction
+    * DFA Construction
+      * Closure function
+      * Goto function
+    * Building Action and Goto Tables from DFA
+
+* ASSIGNMENTS DUE:
+  * Project 1 (Thursday)
+
+* ASSIGNMENTS RELEASED:
+  * Homework 2 (Thursday)
 
 ## WEEK 6 (Week of 30 SEP)
 
-* Class 1
-  * Lecture: Midterm 1 Q&A based on the [study guide](study_guides/midterm_1_study_guide.md)
-  * Assignments due before class
-    * Deliverable 2
+* READINGS: Textbook, Chapters 4.7-4.9
 
-* Class 2: Midterm 1 on GradeScope
-  * Steps:
-    1. Do TopHat attendance at start of class.  If no attendance, grade will not be counted.
-    2. Click on assignment "Midterm 1" on GradeScope (will appear at start of class).
-    3. Click on the "Start Assignment" button.  There will be a count down timer on the top right once you start.
-    4. Finish and submit the exam within 75 minutes.  You can submit multiple times.
-  * Optionally, you can try the "Sample GradeScope Exam (For Practice)" to get used to the mechanics.
-  * Exam is open book (Lecture slides, notes, textbook, exercises and deliverables, use of Java Development Kit or VSCode are permitted).
-  * Exam is individual work (use of generative AI is banned).
+* TOPICS:
+  * More powerful LR Parsers
+    * Look ahead
+    * SLR(k)
+    * LR(k)
+      * State splitting
+    * LALR(k)
+      * State merging
+    * Comparison between different parsers
+  * YACC Tool
+    * Shift-reduce conflicts
+    * Reduce-reduce conflicts
+    * Semantic Actions
+    * Error Recovery
+    * LR Table Compaction
+
+* ASSIGNMENTS RELEASED:
+  * Project 2 (Thursday)
 
 ## WEEK 7 (Week of 7 OCT)
 
-* Class 1
-  * Lecture: Performance Testing (READING: AFIST, Chapter 19)
-  * Assignments due before class
-    * Listen to Writing Testable Code Lecture (READING: AFIST, Chapter 16)
+* READINGS: Textbook, Chapters 2.7, 6.4.3, 6.5-6.5.2
 
-* Class 2
-  * In-class exercise: [Exercise 4: Performance Testing](exercises/4)
-  * Assignment releases
-    * [Deliverable 4](deliverables/4)
-    * Listen to Stochastic and Property-Based Testing Lecture (READING: AFIST, Chapter 18)
+* TOPICS:
+  * Semantic Analysis
+    * Static scope / Dynamic scope
+    * Symbol Table
+    * Semantic of Arrays
+    * Type Checking
+
+* ASSIGNMENTS DUE:
+  * Homework 2 (Thursday)
 
 ## WEEK 8 (Week of 14 OCT)
 
-* Class 1: NO CLASS (Fall Break)
+* Tuesday: NO CLASS (Fall Break)
 
-* Class 2
-  * In-class exercise: [Supplementary Exercise 2: Property-based Testing](exercises/Supplement2)
-  * Assignments due before class
-    * Listen to Stochastic and Property-Based Testing Lecture (READING: AFIST, Chapter 18)
+* READINGS: Textbook, Chapters 5.1-5.2.4, 5.5
+
+* TOPICS:
+  * Syntax Directed Translation
+    * Attribute Grammar
+    * Synthesized Attribute / Inherited Attribute
+    * Syntax Directed Definition
+    * Syntax Directed Translation Scheme
+    * Left-attributed Grammar
+    * Syntax Directed Translation Scheme Implementation
+      * Bottom-up Parsing
+      * Top-down Parsing
+
+* ASSIGNMENTS RELEASED:
+  * Project 3 (Thursday)
 
 ## WEEK 9 (Week of 21 OCT)
 
-* Class 1
-  * Lecture: Software QA and Nondeterminism
-  * Assignments due before class
-    * Deliverable 3
+* Tuesday: Midterm 1 Review
 
-* Class 2
-  * In-class exercise: [Supplementary Exercise 3: Testing Nondeterministic Software](exercises/Supplement3)
-  * Assignment releases
-    * Listen to Static Analysis Part 1 Lecture
+* Thursday: Midterm 1 Exam
 
 ## WEEK 10 (Week of 28 OCT)
 
-* Class 1
-  * Lecture: Static Analysis Part 2
-  * Assignments due before class
-    * Listen to Static Analysis Part 1 Lecture
+* READINGS: Textbook, Chapters 6 intro, 6.2, 6.3.4-6.3.6, 6.4
 
-* Class 2
-  * In-class exercise: [Exercise 5: Static Analysis](exercises/5)
-  * Assignment releases
-    * [Deliverable 5](deliverables/5)
+* TOPICS:
+  * Code Generation
+    * Multi-level IRs / frontends / backends
+    * Low-level IRSs
+      * Three Address Code and its representation
+      * SSA
+    * Storage layout
+      * Offset
+      * Endianness
+    * Code Generation Through Syntax Directed Translation
+      * Processing Declarations
+      * Processing Statements
+      * Processing Array references
+
+* ASSIGNMENTS DUE:
+  * Project 2 (Thursday)
 
 ## WEEK 11 (Week of 4 NOV)
 
-* Class 1
-  * Lecture: Static Analysis Part 3, Smoke and Exploratory Testing (READING: AFIST, Chapters 10-11)
-  * Assignments due before class
-    * Deliverable 4
+* Tuesday: Remote Class on Zoom (Election Day)
 
-* Class 2
-  * In-class exercise: [Supplementary Exercise 4: CI Pipelines](exercises/Supplement4)
+* READINGS: Textbook, Chapters 1.6.6, 6.6-6.7, 7 intro, 7.1-7.3, 12.2.6
+
+* TOPICS:
+  * Code Generation Through Syntax Directed Translation (cont’d)
+    * Processing Boolean Expressions
+      * Short-Circuiting and non-L attributes
+    * Handling non-L attributes
+      * Two-pass based approach
+      * One-pass base approach using backpatching
+    * Runtime Management
+      * Concept of runtime environment / runtime code
+      * Static / stack / heap data management
+      * Stack data management
+        * Advantages / Disadvantages compared to static management
+        * Activation records (ARs)
+        * Frame pointer / stack pointer
+        * Calling convention and AR layout
+    * Runtime Code Generation
+      * Code for global / local / non-local variable access
+        * Nested procedure declarations
+      * Code of function calls and calling conventions
+        * Call by value, by reference, by name
+      * Buffer Overflow Attack
+      * Classes / Objects
+        * Member variables / member methods
+        * Virtual methods / non-virtual methods
+        * Dynamic dispatch / static dispatch
 
 ## WEEK 12 (Week of 11 NOV)
 
-* Class 1
-  * In-class exercise: [Supplementary Exercise 4: Dockers](exercises/Supplement4)
+* READINGS: Textbook, Chapters 7.4-7.7
 
-* Class 2
-  * Lecture: Pairwise and Combinatorial Testing (READING: AFIST, Chapter 17)
+* TOPICS:
+  * Garbage Collection
+    * Motivation
+    * Reachability and garbage
+    * Two GC schemes
+      * Reference Counting
+      * Tracing
+    * Reference Counting
+      * Circular data structures
+      * Advantages / Disadvantages
+    * Tracing
+      * Root objects
+      * Advantages / Disadvantages
+    * Comparison of different Tracing GC
+      * Mark-Sweep
+      * Semispace
+      * Incremental
+      * Generational
+
+* ASSIGNMENTS DUE:
+  * Project 3 (Thursday)
+
+* ASSIGNMENTS RELEASED:
+  * Project 4 (Thursday)
 
 ## WEEK 13 (Week of 18 NOV)
 
-* Class 1
-  * Lecture: Security Testing (READING: AFIST, Chapter 20)
+READINGS: Textbook, Chapters 7.4.2.-7.4.4, 8.4, 8.5.4, 9.2.1-9.2.3, 9.2.5, 9.3, 9.4
 
-* Class 2
-  * Lecture: Midterm 2 Q&A based on the [study guide](study_guides/midterm_2_study_guide.md)
+TOPICS:
+  * Code Optimization
+    * Data-related optimization
+      * Data layout, code layout
+    * Code-related optimization
+      * Different categories
+    * Local optimization
+      * Strength reduction
+      * Constant folding
+    * Global optimization
+  * Control flow analysis
+    * Basic block
+    * Control flow graph
+    * Conservatism due to control flow
+  * Data flow analysis
+    * Data flow framework components
+      * Direction
+        * Forward analysis
+        * Backward analysis
+      * Set of values
+      * Meet operator
+	* Semilattice
+        * Top value / bottom value
+      * Transfer function
+    * Data flow framework implementation
+      * Iterative refinement of values
+      * Termination guarantee
+    * Global Constant Propagation
+    * Global Liveness Analysis
 
 ## WEEK 14 (Week of 25 NOV)
 
-* Class 1: NO CLASS (Thanksgiving Break)
-
-* Class 2: NO CLASS (Thanksgiving Break)
+* NO CLASS (Thanksgiving Break)
 
 ## WEEK 15 (Week of 2 DEC)
 
-* Guest Lecturers from Industry (TBA)
+* READINGS: Textbook, Chapters 8.6, 8.8, 8.9.1-8.9.2
+
+* TOPICS:
+  * Register Allocation
+    * Local register allocation
+      * Register spilling
+    * Global register allocation
+      * Graph coloring
+        * Live ranges
+        * Register interference graph
+        * Chaitin’s algorithm
+          * Optimality
+          * Spilling and retry
+        * Linear scan
+          * Live intervals
+          * Linear code layout
+        * ILP
+  * Instruction selection
+    * Importance of CISC
+    * Tree tiling
 
 ## WEEK 16 (Week of 9 DEC)
 
-* Class 1: Midterm 2 on GradeScope
-  * Steps:
-    1. Do TopHat attendance at start of class.  If no attendance, grade will not be counted.
-    2. Click on assignment "Midterm 2" on GradeScope (will appear at start of class).
-    3. Click on the "Start Assignment" button.  There will be a count down timer on the top right once you start.
-    4. Finish and submit the exam within 75 minutes.  You can submit multiple times.
-  * Exam is open book (Lecture slides, notes, textbook, exercises and deliverables, use of Java Development Kit or VSCode are permitted).
-  * Exam is individual work (use of generative AI is banned).
+* Tuesday: Midterm 2 Exam
 
-* Class 2: NO CLASS (No final exam)
+* ASSIGNMENTS DUE:
+  * Project 4 (Friday)
 
-* Deliverable 5 due Friday 11:59 PM
