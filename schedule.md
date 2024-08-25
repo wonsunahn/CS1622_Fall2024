@@ -214,6 +214,9 @@ CS1622 Compiler Design
         * Virtual methods / non-virtual methods
         * Dynamic dispatch / static dispatch
 
+* ASSIGNMENTS RELEASED:
+  * Project 4 (Thursday)
+
 ## WEEK 12 (Week of 11 NOV)
 
 * READINGS: Textbook, Chapters 7.4-7.7
@@ -239,9 +242,6 @@ CS1622 Compiler Design
 
 * ASSIGNMENTS DUE:
   * Project 3 (Thursday)
-
-* ASSIGNMENTS RELEASED:
-  * Project 4 (Thursday)
 
 ## WEEK 13 (Week of 18 NOV)
 
