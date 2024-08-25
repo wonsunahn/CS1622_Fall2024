@@ -74,9 +74,10 @@ projects are written in the C programming language.
 **Homeworks**: There are two written homeworks that prepare you for the two
 exams.
 
-**Participation**:  TopHat attendance will be taken every day.  Both in-class
-and out-of-class participation will be taken into consideration.  Please let me
-know in advance if you are going to miss a class.
+**Participation**:  TopHat attendance will be taken every day.  Also, there
+will be TopHat questions asked during class to check that you have been paying
+attention.  I will also be monitoring your contribution to in-class and
+out-of-class discussions.
 
 ## Grading
 
@@ -107,18 +108,17 @@ Score  | Grade
 
 ## Assignment submission
 
-All exercises and deliverables will be submitted using GradeScope.
+All written and programming submissions will be done through GradeScope.  You
+are free to do as many submissions as you would like before the deadline.  You
+are encouraged to do multiple submissions for programming assignments in
+particular as the autograder will give you feedback on each submissions, upon
+which you can improve.
 
-Most assignments will be done in a GitHub Classroom repository.  The repository
-will allow you to collaborate effectively with your partner and also keep a
-history of all past modifications for versioning purposes.  The repository can
-be submitted in its entirety to GradeScope.  Make sure you commit and push your
-changes before submitting.  
-
-All exercises are expected to be submitted on time, for the purposes of timely feedback.
-Late deliverables will receive a -5 percentage point penalty per day (e.g., if
-you would have received a 90% on a deliverable, but you turned it in 3 days
-late, you would receive 90 - 15 = 75%.).  
+Programming assignments will be done in a GitHub Classroom repository.  Please
+commit and push frequently for code backup and versioning purposes, as a matter
+of good software engineering pratice.  The repository can be submitted in its
+entirety to GradeScope.  Make sure you commit and push your changes before
+submitting.  
 
 ## Programming Language Selection
 
