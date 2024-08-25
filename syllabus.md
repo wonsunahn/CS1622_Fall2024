@@ -1,15 +1,14 @@
 - [CS 1622](#cs-1622)
   * [Course Information](#course-information)
+  * [Description](#description)
+  * [Class Components](#class-components)
   * [Grading](#grading)
-  * [Group Work](#group-work)
-  * [Excercise Details](#excercise-details)
-  * [Deliverable Details](#deliverable-details)
   * [Assignment submission](#assignment-submission)
   * [Programming Language Selection](#programming-language-selection)
   * [Participating in Class](#participating-in-class)
+  * [In-Person Attendance](#in-person-attendance)
   * [Disability Services Statement](#disability-services-statement)
   * [Academic Integrity Statement](#academic-integrity-statement)
-  * [Back to In-Person](#back-to-in-person)
 
 # CS 1622
 Introduction to Compiler Design - Fall 2024
@@ -46,33 +45,34 @@ Alfred V.Aho, Monica Lam, Ravi Sethi and Jeffery D.Ullman, Compilers: principles
 
 This course takes you through the design and implementation of current
 high-level languages. Both frontend and backend issues are dealt with. The
-frontend is the part of a compiler that analyzes a pro-gram to produce a form
+frontend is the part of a compiler that analyzes a program to produce a form
 of internal representation (IR) that is more easily understood by the compiler.
 The frontend comprises components such as: lexical analysis, syntax analysis,
 and semantic analysis. The backend is the part of a compiler that takes the IR
-and produces machine code that can be effi-ciently executed by the processor.
+and produces machine code that can be efficiently executed by the processor.
 The backend comprises components such as: target code genera-tion, register
 allocation, and code optimization. The course also touches upon the management
 of storage locations such as processor registers, the program stack, the
 program heap and the role of the compiler and language runtime.
 
-## Class Policies
+## Class Components
 
-**Exams**:  There will be a midterm and a final. 
+**Exams**:  There will be two midterm exams (non-cumulative).  If you have a
+medical or family emergency that prevents you from taking an exam, please
+message me on Teams **before the exam** so that I can verify your emergency and
+give you permission for a make-up.
 
-**Projects**: There will be four course projects, which will take you through
-the implementation of a com-piler for a simple toy programming language called
-Mini-Java, starting from the frontend and ending in the backend. The projects
-are to be done in C on Linux/Unix environments. The project components are
-assigned in roughly increasing order of size and difficulty.  Late submissions
-will incur a 5% penalty per day. These are meant to be your own work; anyone
-found to be collaborating will be disciplined in accordance to University
-policy.  Cheating means (but is not limited to): using code from generative AI,
-other universities, your friends, finding it on the Internet, getting help from
-unapproved forums, or outsourcing it. 
+**Projects**: The course project will take you through the implementation of a
+compiler for a simple toy programming language called Mini-Java, starting from
+the frontend and ending in the backend. The project is divided into 4 phases
+(lexical analysis, syntax analysis, semantic analysis, and code generation),
+and each phase requires a separate submission.  The latter phases are built on
+top of the former phases so it is important that you do not fall behind.  If
+you do fall behind, there is a 5% late submission penalty per day.  The
+projects are written in the C programming language.  
 
-**Homeworks**: There will be around two written homeworks that are meant to
-check your understanding of the course material.
+**Homeworks**: There are two written homeworks that prepare you for the two
+exams.
 
 **Participation**:  TopHat attendance will be taken every day.  Both in-class
 and out-of-class participation will be taken into consideration.  Please let me
@@ -84,10 +84,8 @@ know in advance if you are going to miss a class.
 * Exams (40%):
   * Midterm - 20%
   * Final - 20%
+* 2 Homeworks (10%): 5% each
 * Participation (10%)
-
-Exams will NOT be allowed to be made up except with a valid and verified excuse
-(generally medical - others are left to the discretion of the instructor).
 
 The following grading scale will be used.  Note that I generally do _not_ round
 grades up.
@@ -185,7 +183,7 @@ positive test result or you are waiting for test results._
 For the above exceptions, I will create Zoom sessions on demand.  These Zoom
 sessions are only available to affected students and are protected by a
 password which is distributed individually.  Please notify me as soon as you
-are affected so I can make arrangements.
+are affected so that I can make arrangements.
 
 ## Disability Services Statement
 
@@ -212,15 +210,10 @@ will receive a minimum sanction of a zero score for the exam or assignment.
 
 Some guidelines:
 
-_1. For unscored in-class exercises, you are allowed (and encouraged) to look
-at your classmates' work and discuss it.  If you get ample help for the
-exercises, you should rarely need additional help for the deliverables._
+1. For all submissions, viewing the work done by your classmates (or a 3rd
+source) before submission is considered cheating.  Aiding this activity is also
+considered cheating.
 
-_2. For all scored deliverables and exams, viewing the work done by your
-classmates (or a 3rd source) before submission is considered cheating.  Aiding
-this activity is also considered cheating.  The only exception is your
-designated partner for your group projects._
-
-_3. Text or code generated by generative AI such as ChatGPT or CoPilot is
+2. Text or code generated by generative AI such as ChatGPT or CoPilot is
 included in the prohibited 3rd source mentioned above.  You should be the sole
-originator of all text or code that you submit as part of this class._
+originator of all text or code that you submit as part of this class.
