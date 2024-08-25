@@ -39,7 +39,7 @@ Introduction to Compiler Design - Fall 2024
 
 Alfred V.Aho, Monica Lam, Ravi Sethi and Jeffery D.Ullman, Compilers: principles, techniques and tools, 2nd Edition, 2006, Addison-Wesley Publishing Company. 
 
-<img alt="Text Book" book.jpg>
+![Text Book](book.jpg)
 
 ## Description
 
