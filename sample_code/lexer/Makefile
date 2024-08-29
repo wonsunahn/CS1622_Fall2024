@@ -1,10 +1,6 @@
-go      : lexdrv.o lex.yy.o table.o
-	cc -o go lexdrv.o lex.yy.o table.o -ll
-lexdrv.o: lexdrv.c token.h
-	cc -c lexdrv.c
+lexer      : lex.yy.o
+	cc -o lexer lex.yy.o -ll
 lex.yy.o : lex.yy.c 
 	cc -c lex.yy.c 
-table.o  : table.c
-	cc -c table.c
-lex.yy.c: lex.l token.h
+lex.yy.c: lex.l
 	flex lex.l
