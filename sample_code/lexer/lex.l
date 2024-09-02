@@ -8,7 +8,7 @@ space          [ ]+
 unknown        [^ \n]+
 
 %%
- /* 2. Rules section: action for each regular expression */
+ /* 2. Rules section: action for each regular expression, in order of precedence. */
 {string}       { printf("type=string, lexeme: %s, len=%d\n", yytext, yyleng); }
 {space}        { printf("type=space, lexeme: %s, len=%d\n", yytext, yyleng); }
 {unknown}      { printf("type=unknown, lexeme: %s, len=%d\n", yytext, yyleng); }
