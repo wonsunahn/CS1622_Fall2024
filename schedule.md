@@ -32,7 +32,7 @@ CS1622 Compiler Design
     * DFA to table-driven implementation
 
 * ASSIGNMENTS RELEASED:
-  * Project 1 (Thursday)
+  * Project 1 (Tuesday)
   * Homework 1 (Thursday)
 
 ## WEEK 3 (Week of 9 SEP)
@@ -93,7 +93,7 @@ CS1622 Compiler Design
     * Building Action and Goto Tables from DFA
 
 * ASSIGNMENTS DUE:
-  * Project 1 (Thursday)
+  * Project 1 (Tuesday)
 
 * ASSIGNMENTS RELEASED:
   * Homework 2 (Thursday)
