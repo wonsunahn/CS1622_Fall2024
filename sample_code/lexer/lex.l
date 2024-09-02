@@ -5,11 +5,13 @@
 %}
 string         [a-z]+
 space          [ ]+
+unknown        [^ \n]+
 
 %%
  /* 2. Rules section: action for each regular expression */
-{string}       { printf("lexeme: %s, len=%d\n", yytext, yyleng); }
-{space}        { /* No action */ }
+{string}       { printf("type=string, lexeme: %s, len=%d\n", yytext, yyleng); }
+{space}        { printf("type=space, lexeme: %s, len=%d\n", yytext, yyleng); }
+{unknown}      { printf("type=unknown, lexeme: %s, len=%d\n", yytext, yyleng); }
 
 %%
 /* 3. User code section */
