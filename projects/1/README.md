@@ -14,7 +14,7 @@
 
 DUE: September 24 (Tuesday), 2024 Before Class
 
-Please accept Project 1 on **GitHub Classroom** using the following link: TBD
+Please accept Project 1 on **GitHub Classroom** using the following link: https://classroom.github.com/a/hPmS7wXK
 
 When you accept the assignment, a new GitHub repository will be automatically
 created for you with which you will do backup, versioning, and submission.
