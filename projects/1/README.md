@@ -342,7 +342,7 @@ column corresponds to the strings that match the given token type.  The strings
 in bold are keywords.  The strings in italics indicate a pattern that is given
 by the following:
 
-* _identifier_: An alphabet character followed by one or more alpha-numeric characters.
+* _identifier_: An alphabet character followed by zero or more alpha-numeric characters.
 
 * _integerconstant_: A sequence of one or more digits between 0-9.
 
