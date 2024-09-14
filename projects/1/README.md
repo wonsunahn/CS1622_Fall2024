@@ -38,7 +38,7 @@ button on the "Codespaces" tab as shown below.
 <img alt="Creating a codespace" src="imgs/create_codespace.png" width=300>
 
 This will fire up a new codespace container on the GitHub cloud.  The container
-runs the latest verions of the Ubuntu Linux operating system and provides a
+runs the latest versions of the Ubuntu Linux operating system and provides a
 virtualized VSCode development environment.  The window should look something
 like the below:
 
@@ -95,7 +95,7 @@ menu to do that:
 https://docs.github.com/en/codespaces/developing-in-a-codespace/using-source-control-in-your-codespace#committing-your-changes
 
 Your Codespace will only get deleted if you manually delete it, unless you
-leave a Codespace idle for 30 days.  A week before the 30 daya, GitHub will
+leave a Codespace idle for 30 days.  A week before the 30 days, GitHub will
 warn you that the Codespace will be garbage collected, and if you don't take
 any action, it will delete the container.  I can't think of a scenario where
 this would happen for our projects unless you completely forget to push your
@@ -188,7 +188,7 @@ make: [Makefile:44: diffs_side_by_side/comments.diff] Error 1 (ignored)
 ```
 
 You can see each of the source files under tests/ being piped into the lexer
-binary as stdin.  The results of the lexing are stored unrder the corresponding
+binary as stdin.  The results of the lexing are stored in the corresponding
 .out files under the outputs/ folder.  You can also see that each of the diff
 commands comparing .out files under the outputs/ folder and outputs_solution/
 folder are failing.  That is because as of now, your lexer is incomplete.
@@ -429,7 +429,7 @@ The source file table.cpp contains a function <tt>void addStringTable(char \*tex
 that you are asked to complete.  It adds <tt>text</tt> of the given
 <tt>tokenType</tt> to the string table if the string does not already exist.  It
 also stores the index into the string table of that text into yylval, that
-represents the lexeme.  The file predeclares a <tt>hashTable</tt> variable of
+represents the lexeme.  The file pre-declares a <tt>hashTable</tt> variable of
 <tt>std::unordered_map\<std::string, int\></tt> type to help with the implementation.
 If you are unfamiliar with C++ data structures, here are the documentations for
 [std::unordered_map](https://en.cppreference.com/w/cpp/container/unordered_map)
@@ -437,7 +437,7 @@ and [std::string](https://cplusplus.com/reference/string/string/) respectively.
 Note that the file has the .cpp extension (for C++ code) and not the .c
 extension (for C code) exactly because I wanted to give you access to this C++
 data structures.  No need to reinvent hash tables from scratch as this is not a
-data structres class.
+data structures class.
 
 ### Debugging
 
