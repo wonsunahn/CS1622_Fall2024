@@ -29,7 +29,7 @@ Introduction to Compiler Design - Fall 2024
 
 **Grading TA Information:**
 
-  * Name: TBD
+  * Name: Raja Krishnaswamy (rek94 at pitt dot edu)
   * Primary mode of communication: "Regrade Request" on GradeScope
   * Secondary mode of communication: Chat on Microsoft Teams
 
