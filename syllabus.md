@@ -30,6 +30,7 @@ Introduction to Compiler Design - Fall 2024
 **Grading TA Information:**
 
   * Name: Raja Krishnaswamy (rek94 at pitt dot edu)
+  * Physical Office Hours: Mon/Wed/Fri 3:00 - 4:00 PM @ 6148 Sennott Square
   * Primary mode of communication: "Regrade Request" on GradeScope
   * Secondary mode of communication: Chat on Microsoft Teams
 
