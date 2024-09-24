@@ -93,7 +93,7 @@ CS1622 Compiler Design
     * Building Action and Goto Tables from DFA
 
 * ASSIGNMENTS DUE:
-  * Project 1 (Tuesday)
+  * Project 1 (Thursday)
 
 * ASSIGNMENTS RELEASED:
   * Homework 2 (Thursday)

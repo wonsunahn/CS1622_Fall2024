@@ -12,7 +12,7 @@
 
 # Project 1: Lexical Analysis
 
-DUE: September 24 (Tuesday), 2024 Before Class
+DUE: September 26 (Thursday), 2024 Before Class
 
 Please accept Project 1 on **GitHub Classroom** using the following link: https://classroom.github.com/a/TZB8y3GP
 
