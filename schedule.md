@@ -119,6 +119,7 @@ CS1622 Compiler Design
     * LR Table Compaction
 
 * ASSIGNMENTS RELEASED:
+  * Homework 2 (Thursday)
   * Project 2 (Thursday)
 
 ## WEEK 7 (Week of 7 OCT)
@@ -151,6 +152,9 @@ CS1622 Compiler Design
     * Syntax Directed Translation Scheme Implementation
       * Bottom-up Parsing
       * Top-down Parsing
+
+* ASSIGNMENTS DUE:
+  * Homework 3 (Thursday)
 
 * ASSIGNMENTS RELEASED:
   * Project 3 (Thursday)
