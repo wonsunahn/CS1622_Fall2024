@@ -119,7 +119,7 @@ CS1622 Compiler Design
     * LR Table Compaction
 
 * ASSIGNMENTS RELEASED:
-  * Homework 2 (Thursday)
+  * Homework 3 (Thursday)
   * Project 2 (Thursday)
 
 ## WEEK 7 (Week of 7 OCT)
