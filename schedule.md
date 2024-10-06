@@ -183,9 +183,6 @@ CS1622 Compiler Design
       * Processing Statements
       * Processing Array references
 
-* ASSIGNMENTS DUE:
-  * Project 2 (Thursday)
-
 ## WEEK 11 (Week of 4 NOV)
 
 * Tuesday: Remote Class on Zoom (Election Day)
@@ -217,6 +214,9 @@ CS1622 Compiler Design
         * Member variables / member methods
         * Virtual methods / non-virtual methods
         * Dynamic dispatch / static dispatch
+
+* ASSIGNMENTS DUE:
+  * Project 2 (Thursday)
 
 * ASSIGNMENTS RELEASED:
   * Project 4 (Thursday)
