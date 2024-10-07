@@ -1,0 +1,9 @@
+diffs_default/
+diffs_side_by_side/
+outputs/
+*.o
+lex.yy.c
+y.tab.*
+y.output
+parser
+.DS_Store
