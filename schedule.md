@@ -170,7 +170,7 @@ CS1622 Compiler Design
     3. Click on the "Start Assignment" button.  There will be a count down timer on the top right once you start.
     4. Finish and submit the exam within 75 minutes.  You can submit multiple times.
   * Optionally, you can try the "Sample GradeScope Exam (For Practice)" to get used to the mechanics.
-  * Exam is open book (Lecture slides, notes, textbook, homeworks and projects, use of JFLAP, Lex, or Yacc are permitted).
+  * Exam is open book (Lecture slides, textbook, homeworks and projects, use of JFLAP, Lex, and Yacc are permitted).
   * Exam is individual work (use of generative AI is banned).
 
 * Thursday: Midterm 1 Exam
