@@ -1,0 +1,15 @@
+**************** SYMBOL TABLE ****************
+
+          Name       Kind Nest-Level Predefined       Type     Init-Node     Offset Dimensions  Arguments LLVMObject
+
+  0    minimal    program          1                                                                                
+  1         c1      class          2                                                                                
+************* SYNTAX TREE PRINTOUT ***********
+
+  +-[STNode,0,"minimal"]
+R-[ProgramOp]
+  |   +-[STNode,1,"c1"]
+  | +-[ClassDefOp]
+  | | +-[DUMMYnode]
+  +-[ClassOp]
+    +-[DUMMYnode]

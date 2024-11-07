@@ -1,0 +1,29 @@
+/* EXAMPLE 4: Two classes this time */
+program x4;
+class Point {
+	     declarations
+        		int x, y;
+	     enddeclarations
+}
+
+class Test {
+	declarations
+            	Point p0;
+	enddeclarations
+        method int main()
+	     declarations
+                Point p;
+	     enddeclarations
+	{
+	        p.y := 1;
+	        p.x := 2;
+			p0.x := 3;
+			p0.y := 4;
+			system.println('p.x = ');
+			system.println(p.x);
+			system.println('p0.x = ');
+			system.println(p0.x);
+			return 0;
+        }
+}
+

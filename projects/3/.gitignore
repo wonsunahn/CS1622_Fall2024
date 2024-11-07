@@ -1,0 +1,9 @@
+diffs/
+outputs/
+doc/
+*.o
+lex.yy.c
+y.tab.*
+y.output
+parser
+.DS_Store

@@ -1,0 +1,6 @@
+/* minimal: barebones program */
+program minimal;
+class c1
+{
+}
+
