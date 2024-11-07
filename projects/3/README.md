@@ -3,7 +3,7 @@
   * [Codespace Development Environment](#codespace-development-environment)
   * [Directory Structure and Makefile Script](#directory-structure-and-makefile-script)
   * [Implementation](#implementation)
-    + [Updating lex.l, grammar.y, and table.cpp](#updating-lexl--grammary--and-tablecpp)
+    + [Updating lex.l, grammar.y, and table.cpp](#updating-lexl-grammary-and-tablecpp)
     + [Completing proj3.cpp and table.cpp](#completing-proj3cpp-and-tablecpp)
     + [Completing semantic.cpp](#completing-semanticcpp)
   * [Appendix](#appendix)
@@ -25,7 +25,7 @@ Please accept Project 3 on **GitHub Classroom** using the following link: TBD
 In this phase of the project, you will write a semantic analyzer for the CS
 1622 programming language, MINI-JAVA. The analyzer will analyze the syntax tree
 generated from the parser in the previous stage to first populate a symbol
-table on declaratins of symbols, and second use the symbol table to perform
+table on declarations of symbols, and second use the symbol table to perform
 semantic analysis tasks on the symbol uses.  
 
 ## Codespace Development Environment
@@ -38,7 +38,7 @@ sudo apt-get update
 sudo apt-get install -y flex
 ```
 
-and the VSCode C++ Extensions Pack:
+And the VSCode C++ Extensions Pack:
 
 https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack
 
@@ -124,7 +124,7 @@ make clean
 You will import the code that you wrote for Project 2 to complete lex.l,
 grammar.y, and to a large extent, table.cpp.
 
-You have a few snippents of code you have to write anew for table.cpp and also
+You have a few snippets of code you have to write anew for table.cpp and also
 proj3.cpp, but the bulk of the effort in this project will be spent on
 semantic.cpp, the file that implements the semantic analysis stage by
 traversing the syntax tree created by the parser.
@@ -197,7 +197,7 @@ Now please complete the **STAddPredefined** function in proj3.cpp.  The
 STAddPredefined function is called inside semantic.cpp at the beginning of
 semantic analysis to populate the symbol table with pre-defined functions such
 as ``system.readln'' or ``system.println'.  You should add these functions only
-if they are called inside the MINI-JAVA soure code, that is, only if you can
+if they are called inside the MINI-JAVA source code, that is, only if you can
 find the relevant strings inside the string table.  For this, you will find the
 **getIndex** function inside table.cpp handy.  The getIndex function takes a
 string as a parameter and returns the index of that string in the string table
@@ -214,7 +214,7 @@ the PREDE_ATTR attribute to true using the **SetAttr** function.  You will also
 have to set the ARGNUM_ATTR attributes to 1 for the "readln" and "println"
 symbols to specify one argument for each function.  Don't forget to use the
 **OpenBlock** and **CloseBlock** functions appropriately to enter Class scope
-for "system" when adding the "readln" and "writeln" symbols.
+for "system" when adding the "readln" and "println" symbols.
 
 If all goes well, you will see the following symbol table get printed for
 helloworld.out after you do 'make' again:
@@ -247,7 +247,7 @@ adding names to the symbol table on symbol declarations and also binding symbol
 uses to declarations using the symbol table.  Note that there can be multiple
 declarations of symbols within the same name, but within different scopes of
 the program.  Your job is to find the correct symbol to bind to on each use.
-The **LookUp** function is going to prove crucial for this purpose.  It searchs
+The **LookUp** function is going to prove crucial for this purpose.  It searches
 the stack of all currently active scopes in reverse order to find the symbol to
 bind to.
 
