@@ -18,7 +18,7 @@
 
 DUE: November 26 (Tuesday), 2024 1:00 PM
 
-Please accept Project 3 on **GitHub Classroom** using the following link: TBD
+Please accept Project 3 on **GitHub Classroom** using the following link: https://classroom.github.com/a/vIXXs62k
 
 ## Description
 
