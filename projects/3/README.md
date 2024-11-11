@@ -310,10 +310,10 @@ Here is the list of attributes and what values are expected for them.
 | Attribute Name | Kinds applicable to | Description |
 | -------------- | ------------------- | ----------- |
 | NAME_ATTR | All | Offset in string table where the name is stored. |
-| KIND_ATTR | All | Kind of symbol (VAR, ARR, FUNC, REF_ARG, VALUE_ARG, CLASS, PROGRAM). |
+| KIND_ATTR | All | Kind of symbol.  One of: VAR, ARR, FUNC, REF_ARG, VALUE_ARG, CLASS, PROGRAM. |
 | NEST_ATTR | All | Nesting level, in terms of lexical scopes. |
 | PREDE_ATTR | FUNC, CLASS | Whether this symbol is predefined ("system", "readln", "println"). |
-| TYPE_ATTR | VAR, ARR, FUNC, REF_ARG, VALUE_ARG | Pointer to type node of a variable or function.  In the case of VAR, ARR and FUNC, it is a TypeIdOp.  In the case of REF_ARG and VALUE_ARG, it is a INTEGERTNode or STNode. |
+| TYPE_ATTR\* | VAR, ARR, FUNC, REF_ARG, VALUE_ARG | Pointer to type node of a variable or function.  In the case of VAR, ARR and FUNC, it is a TypeIdOp.  In the case of REF_ARG and VALUE_ARG, it is an INTEGERTNode. |
 | INIT_ATTR | VAR, ARR, FUNC | Pointer to initialization node of a variable or function. In the case of VAR, it is a NUMNode.  In the case of ARR, it is a ArrayTypeOp.  In the case of FUNC, it is a BodyOp which is the body of the function (statements). |
 | OFFSET_ATTR | VAR, ARR, REF_ARG, VALUE_ARG | Offset of variable in a class object (if a class member), function stack (if a function local variable), or function parameters. |
 | DIMEN_ATTR | ARR | Dimensions of an array.  The value is a <tt>std::vector*</tt> type that is created via <tt>new std::vector<int>()</tt>, and dimensions are elements in the vector. |
@@ -321,6 +321,7 @@ Here is the list of attributes and what values are expected for them.
 | OBJECT_ATTR | All | Pointer to LLVM object (<tt>llvm::Value*</tt> type) which is an instantiation of the symbol in LLVM IR.  No need to worry about until Project 4. |
 | LINENO_ATTR | All | Source line number where the symbol was defined.  No need to worry about unless you are doing the extra credit. |
 | IS_USED_ATTR | VAR, ARR, FUNC, REF_ARG, VALUE_ARG | Whether this symbol has ever been used (if not it is redundant).  No need to worry about unless you are doing the extra credit. |
+* REF_ARG and VALUE_ARG are function arguments and, in MINI-JAVA, only ints can be passed as arguments.  Hence, they the type nodes for these symbols in the syntax tree do not have TypeIdOps required for more complex types.  So for these, we assign the INTEGERTNode to TYPE_ATTR instead of a TypeIdOp.
 
 ## Appendix
 
