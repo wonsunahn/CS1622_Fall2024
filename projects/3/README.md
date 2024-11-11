@@ -321,7 +321,7 @@ Here is the list of attributes and what values are expected for them.
 | OBJECT_ATTR | All | Pointer to LLVM object (<tt>llvm::Value*</tt> type) which is an instantiation of the symbol in LLVM IR.  No need to worry about until Project 4. |
 | LINENO_ATTR | All | Source line number where the symbol was defined.  No need to worry about unless you are doing the extra credit. |
 | IS_USED_ATTR | VAR, ARR, FUNC, REF_ARG, VALUE_ARG | Whether this symbol has ever been used (if not it is redundant).  No need to worry about unless you are doing the extra credit. |
-* REF_ARG and VALUE_ARG are function arguments and, in MINI-JAVA, only ints can be passed as arguments.  Hence, they the type nodes for these symbols in the syntax tree do not have TypeIdOps required for more complex types.  So for these, we assign the INTEGERTNode to TYPE_ATTR instead of a TypeIdOp.
+\* REF_ARG and VALUE_ARG are function arguments and, in MINI-JAVA, only ints can be passed as arguments.  Hence, they the type nodes for these symbols in the syntax tree do not have TypeIdOps required for more complex types.  So for these, we assign the INTEGERTNode to TYPE_ATTR instead of a TypeIdOp.
 
 ## Appendix
 
