@@ -7,10 +7,11 @@
     + [Completing proj3.cpp and table.cpp](#completing-proj3cpp-and-tablecpp)
     + [Completing semantic.cpp](#completing-semanticcpp)
   * [Appendix](#appendix)
-    + [Appendix A: Doxygen documentation generation](#appendix-a--doxygen-documentation-generation)
-    + [Appendix B: Debugging](#appendix-b--debugging)
-    + [Appendix C: Extra Credit](#appendix-c--extra-credit)
-    + [Appendix D: Obtaining the solution for Project 2](#appendix-d--obtaining-the-solution-for-project-2)
+    + [Appendix A: Attributes in the symbol table](#appendix-a--attributes-in-the-symbol-table)
+    + [Appendix B: Doxygen documentation generation](#appendix-b--doxygen-documentation-generation)
+    + [Appendix C: Debugging](#appendix-c--debugging)
+    + [Appendix D: Extra Credit](#appendix-d--extra-credit)
+    + [Appendix E: Obtaining the solution for Project 2](#appendix-e--obtaining-the-solution-for-project-2)
   * [Grading](#grading)
   * [Submission](#submission)
 
@@ -305,6 +306,10 @@ described in the proj3.h file.
 You will soon feel MkST getting too big after some coding.  Please feel free to
 add helper functions within semantic.cpp for more modular programming.
 
+## Appendix
+
+### Appendix A: Attributes in the symbol table
+
 Here is the list of attributes and what values are expected for them.
 
 | Attribute Name | Kinds applicable to | Description |
@@ -324,9 +329,7 @@ Here is the list of attributes and what values are expected for them.
 
 \* REF_ARG and VALUE_ARG are function arguments and, in MINI-JAVA, only ints can be passed as arguments.  Hence, they the type nodes for these symbols in the syntax tree do not have TypeIdOps required for more complex types.  So for these, we assign the INTEGERTNode to TYPE_ATTR instead of a TypeIdOp.
 
-## Appendix
-
-### Appendix A: Doxygen documentation generation
+### Appendix B: Doxygen documentation generation
 
 Some comments that document functions and variables are written in Doxygen format.  That means the comments show up as tool tips on VSCode, which can be convenient when you use those functions.  You can also auto-generate HTML documentation out of those comments.  For this you will have to install doxygen:
 
@@ -350,7 +353,7 @@ in the context menu.  Then, if you click on Files > File List and the proj3.cpp
 on the webpage, you can see documentation for all the functions and variables
 in that file.
 
-### Appendix B: Debugging
+### Appendix C: Debugging
 
 You can use the VSCode Debugger just like you did for previous projects.  You
 will have to edit the .vscode/launch.json file so that you use the mjava file
@@ -365,7 +368,7 @@ If you think you have a memory bug, you can run **valgrind** as such:
 valgrind <command line>
 ```
 
-### Appendix C: Extra Credit
+### Appendix D: Extra Credit
 
 I plan on two types of extra credit for this project:
 
@@ -379,7 +382,7 @@ to line numbers where the errors are happening.
 I will announce it when the extra credit is ready for your consumption, within
 a week of project release.
 
-### Appendix D: Obtaining the solution for Project 2
+### Appendix E: Obtaining the solution for Project 2
 
 If you were not able to complete Project 2, and you want to move on to Project
 3, I will provide a way forward.  Just message me on Teams.  I am going to
