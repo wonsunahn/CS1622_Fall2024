@@ -12,7 +12,7 @@ extern "C" int yyleng;
 #define STRTBL_LEN 3001      /* String table length */
 #define STR_SPRTR  0         /* String seperator in string table */
 
-static std::unordered_map<std::string, int> hash_table;  /* Hash table mapping strings to indices in the string table */
+static std::unordered_map<std::string, int> hashTable;  /* Hash table mapping strings to indices in the string table */
 static char stringTable[STRTBL_LEN] = {STR_SPRTR};      /* String table of length STRTBL_LEN */
 static int stringTableEndIndex = 0;                    /* End of the string table */
 

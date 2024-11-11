@@ -211,25 +211,42 @@ void SetAttr(int st_idx, int attr_num, uintptr_t attr_val)
 
 const char *kind_name[] = {"variable", "function", "ref_arg", "val_arg", "class", "program", "array"};
 
-const char *getNodeString(tree nd)
+std::string getNodeString(tree nd)
 {
   switch (NodeKind(nd))
   {
   case EXPRNode:
     return getNodeOpString(nd);
+  case NUMNode:
+    return "NUMNode(" + std::to_string(IntVal(nd)) + ")";
+  default:
+    printf("DEBUG--Unprintable node kind %s\n", kind_name[NodeKind(nd)]);
+    assert(0);
+  }
+}
+
+std::string getTypeString(tree nd)
+{
+  switch (NodeKind(nd))
+  {
   case INTEGERTNode:
     return "int";
-  case STNode:
+  case EXPRNode:
   {
-    int idx = IntVal(nd);
-    assert(idx > 0);
-    return getString(GetAttr(idx, NAME_ATTR));
-  }
-  case NUMNode:
-  {
-    static char buf[32];
-    snprintf(buf, 32, "NUMNode(%d)", IntVal(nd));
-    return buf;
+    assert(NodeOp(nd) == TypeIdOp);
+    std::string type;
+    if (NodeKind(LeftChild(nd)) == INTEGERTNode)
+      type = "int";
+    else
+    {
+      assert(NodeKind(LeftChild(nd)) == STNode);
+      int idx = IntVal(LeftChild(nd));
+      assert(idx > 0);
+      type = getString(GetAttr(idx, NAME_ATTR));
+    }
+    for (tree indexOp = RightChild(nd); NodeOp(indexOp) == IndexOp; indexOp = RightChild(indexOp))
+      type += "[]";
+    return type;
   }
   case DUMMYNode:
     return "void";
@@ -239,9 +256,8 @@ const char *getNodeString(tree nd)
   }
 }
 
-const char *getDimensionsString(std::vector<int> *dims)
+std::string getDimensionsString(std::vector<int> *dims)
 {
-  static char buf[11];
   std::string str;
 
   assert(dims != NULL);
@@ -249,8 +265,7 @@ const char *getDimensionsString(std::vector<int> *dims)
     str += std::to_string(dim) + " ";
   if (str.length() > 0)
     str.erase(str.length() - 1, 1);
-  snprintf(buf, 11, "%s", str.c_str());
-  return buf;
+  return str;
 }
 
 /// @brief Prints out all the symbols in the symbol table.
@@ -289,14 +304,14 @@ void STPrint(FILE *table, bool printLineNo)
           break;
         case INIT_ATTR:
         {
-          const char *node_str = attr_val ? getNodeString((tree)attr_val) : "";
-          fprintf(table, "%14s", node_str);
+          std::string node_str = attr_val ? getNodeString((tree)attr_val) : "";
+          fprintf(table, "%14s", node_str.c_str());
         }
         break;
         case TYPE_ATTR:
         {
-          const char *node_str = attr_val ? getNodeString((tree)attr_val) : "";
-          fprintf(table, "%11s", node_str);
+          std::string type_str = attr_val ? getTypeString((tree)attr_val) : "";
+          fprintf(table, "%11s", type_str.c_str());
         }
         break;
         case PREDE_ATTR:
@@ -309,7 +324,7 @@ void STPrint(FILE *table, bool printLineNo)
           fprintf(table, "%11s", kind_name[attr_val - 1]);
           break;
         case DIMEN_ATTR:
-          fprintf(table, "%11s", getDimensionsString((std::vector<int> *)attr_val));
+          fprintf(table, "%11s", getDimensionsString((std::vector<int> *)attr_val).c_str());
           break;
         case ARGNUM_ATTR:
           fprintf(table, "%11lu", attr_val);

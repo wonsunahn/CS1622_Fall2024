@@ -6,7 +6,7 @@
   1     system      class          2        yes                                                                     
   2    println   function          3        yes                                                         1           
   3     Point0      class          2                                                                                
-  4      parr0      array          3                   int   ArrayTypeOp          0         12                      
+  4      parr0      array          3                 int[]   ArrayTypeOp          0         12                      
   5          y   variable          3                   int                        1                                 
   6          x   variable          3                   int    NUMNode(5)          2                                 
   7         f0   function          3                  void        BodyOp                                0           

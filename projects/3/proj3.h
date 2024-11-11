@@ -61,7 +61,7 @@ int IsAttr(int, int);
 uintptr_t GetAttr(int, int);
 void SetAttr(int, int, uintptr_t);
 void STPrint(FILE *, bool);
-void ErrorMessage(int, int, int, int);
+void ErrorMessage(int, int, int);
 
 extern bool printSemanticErrors;
 
