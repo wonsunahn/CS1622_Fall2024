@@ -309,7 +309,6 @@ Here is the list of attributes and what values are expected for them.
 
 | Attribute Name | Kinds applicable to | Description |
 | -------------- | ------------------- | ----------- |
-
 | NAME_ATTR | All | Offset in string table where the name is stored. |
 | KIND_ATTR | All | Kind of symbol (VAR, ARR, FUNC, REF_ARG, VALUE_ARG, CLASS, PROGRAM). |
 | NEST_ATTR | All | Nesting level, in terms of lexical scopes. |
