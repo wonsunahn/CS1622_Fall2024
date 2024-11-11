@@ -312,7 +312,7 @@ Here is the list of attributes and what values are expected for them.
 | NAME_ATTR | All | Offset in string table where the name is stored. |
 | KIND_ATTR | All | Kind of symbol (VAR, ARR, FUNC, REF_ARG, VALUE_ARG, CLASS, PROGRAM). |
 | NEST_ATTR | All | Nesting level, in terms of lexical scopes. |
-| PREDE_ATTR | Whether this symbol is predefined ("system", "readln", "println"). |
+| PREDE_ATTR | FUNC, CLASS | Whether this symbol is predefined ("system", "readln", "println"). |
 | TYPE_ATTR | VAR, ARR, FUNC, REF_ARG, VALUE_ARG | Pointer to type node of a variable or function.  In the case of VAR, ARR and FUNC, it is a TypeIdOp.  In the case of REF_ARG and VALUE_ARG, it is a INTEGERTNode or STNode. |
 | INIT_ATTR | VAR, ARR, FUNC | Pointer to initialization node of a variable or function. In the case of VAR, it is a NUMNode.  In the case of ARR, it is a ArrayTypeOp.  In the case of FUNC, it is a BodyOp which is the body of the function (statements). |
 | OFFSET_ATTR | VAR, ARR, REF_ARG, VALUE_ARG | Offset of variable in a class object (if a class member), function stack (if a function local variable), or function parameters. |
