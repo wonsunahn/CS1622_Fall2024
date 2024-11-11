@@ -115,9 +115,9 @@ int LookUp(int idx)
     // If this scope is empty, continue to next scope.
     if (it->bottom == -1)
       continue;
-    for (int idx = it->bottom; idx <= it->top; idx++)
-      if (GetAttr(idx, NAME_ATTR) == idx)
-        return idx;
+    for (int curIdx = it->bottom; curIdx <= it->top; curIdx++)
+      if (GetAttr(curIdx, NAME_ATTR) == idx)
+        return curIdx;
   }
   return -1;
 }
@@ -131,10 +131,10 @@ int LookUpHere(int idx)
   if (scopeStack.empty() || scopeStack.back().bottom == -1)
     return -1;
 
-  for (int idx = scopeStack.back().bottom; idx <= scopeStack.back().top; idx++)
+  for (int curIdx = scopeStack.back().bottom; curIdx <= scopeStack.back().top; curIdx++)
   {
-    if (GetAttr(idx, NAME_ATTR) == idx)
-      return idx;
+    if (GetAttr(curIdx, NAME_ATTR) == idx)
+      return curIdx;
   }
 
   return -1;
