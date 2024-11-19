@@ -1,17 +1,16 @@
-- [Project 3: Semantic Analysis](#project-3--semantic-analysis)
+- [Project 4: Semantic Analysis](#project-4--semantic-analysis)
   * [Description](#description)
   * [Codespace Development Environment](#codespace-development-environment)
   * [Directory Structure and Makefile Script](#directory-structure-and-makefile-script)
   * [Implementation](#implementation)
-    + [Updating lex.l, grammar.y, and table.cpp](#updating-lexl-grammary-and-tablecpp)
-    + [Completing proj3.cpp and table.cpp](#completing-proj3cpp-and-tablecpp)
-    + [Completing semantic.cpp](#completing-semanticcpp)
+    + [Updating Project 3 files](#updating-project-3-files)
+    + [Understanding LLVM IR](#understanding-llvm-ir)
+    + [Completing codegen.cpp](#completing-codegencpp)
   * [Appendix](#appendix)
-    + [Appendix A: Attributes in the symbol table](#appendix-a-attributes-in-the-symbol-table)
-    + [Appendix B: Doxygen documentation generation](#appendix-b-doxygen-documentation-generation)
-    + [Appendix C: Debugging](#appendix-c-debugging)
-    + [Appendix D: Extra Credit](#appendix-d-extra-credit)
-    + [Appendix E: Obtaining the solution for Project 2](#appendix-e-obtaining-the-solution-for-project-2)
+    + [Appendix A: MINI-JAVA Class and Object Semantics](#appendix-a--mini-java-class-and-object-semantics)
+    + [Appendix B: Debugging](#appendix-b--debugging)
+    + [Appendix C: Extra Credit](#appendix-c--extra-credit)
+    + [Appendix D: Obtaining the solution for Project 3](#appendix-d--obtaining-the-solution-for-project-3)
   * [Grading](#grading)
   * [Submission](#submission)
 
@@ -36,7 +35,11 @@ on the function stack.
 The code that you generate will be in LLVM IR (Intermediate Representation)
 instead of assembly language for a specific machine ISA.  The IR is the
 instruction set for LLVM (Low Level Virtual Machine) which is later converted
-to the machine code for your target machine, whether it be x86 or ARM.
+to the machine code for your target machine, whether it be x86 or ARM.  This is
+in fact common practice in the industry --- LLVM IR serves as the code
+generation target for many programming languages which wishes to leverage the
+powerful Clang/LLVM optimization backend or simply wishes to use the portability
+offered by the various machine code backends.
 
 ## Codespace Development Environment
 
@@ -293,7 +296,7 @@ For example, if you want to understand what the getelementptr instruction does:
 https://releases.llvm.org/11.0.0/docs/LangRef.html#getelementptr-instruction
 
 Here is a rough explanation of what is important to understand.  Any string
-preceded by the @ character are identifiers in the program (e.g. @0, @printf,
+prefixed by the @ character are identifiers in the program (e.g. @0, @printf,
 @main).  You might ask what is @0 --- there is no such identifier in the
 program?  In this case, it refers to the string constant "Hello world !!!\n"
 which is used as an argument to printf.  Whenever there is an unnamed object
@@ -301,20 +304,21 @@ like a string constant that needs a unique label, LLVM will assign a number
 like @0 which will keep incrementing to @1, @2, and so forth, for each
 identifier.
 
-Any string preceded by a % character are virtual CPU registers (e.g. %call).
-Virtual registers are used to hold temporary values for computation just like
-real registers.  The only difference is that LLVM has an unlimited number of
-virtual registers unlike real CPUs (hence the word 'virtual').  This simplifies
-code generation and optimization and keeps the code machine-agnostic.  By
-default, virtual registers will start from %0 and keep incrementing to %1, %2,
-and so forth as more virtual registers are needed.  Since LLVM IR uses SSA
-(Static Single Assignment) representation, each virtual register is assigned to
-only once in the program.  Now, virtual registers can also be named using LLVM
-API to make the code more readable.  In this case the virtual register %call
-was named by the LLVM API that emitted that code.  If two instructions attempt
-to use the same virtual register name, LLVM will automatically attach a suffix
-such as %call1, $call2, etc.  All these virtual registers will be mapped to
-real CPU registers when LLVM IR is converted to machine code.  Some virtual
+Any string prefixed by a % character on the lefthand side of assignment
+instructions are virtual CPU registers (e.g. %call).  Virtual registers are
+used to hold temporary values for computation just like real registers.  The
+only difference is that LLVM has an unlimited number of virtual registers
+unlike real CPUs (hence the word 'virtual').  This simplifies code generation
+and optimization and keeps the code machine-agnostic.  By default, virtual
+registers will start from %0 and keep incrementing to %1, %2, and so forth as
+more virtual registers are needed.  Since LLVM IR uses SSA (Static Single
+Assignment) representation, each virtual register is assigned to only once in
+the program.  Now, virtual registers can also be named using LLVM API to make
+the code more readable.  In this case the virtual register %call was named by
+the LLVM API that emitted that code.  If two instructions attempt to use the
+same virtual register name, LLVM will automatically attach a unique numerical
+suffix such as %call2, %call3, etc.  All these virtual registers will be mapped
+to real CPU registers when LLVM IR is converted to machine code.  Some virtual
 registers will have to be stored in stack memory if there are not enough CPU
 registers, however (called register spilling).
 
@@ -342,30 +346,210 @@ OBJECT_ATTR attribute.  This is going to prove useful when you later use the
 symbol (for example, reading/writing a variable or calling a function).  You
 can use the corresponding LLVM object to emit the code for its use.
 
-For example, take a look at the outputs_solution/helloworld.log file:
+For example, take a look at the outputs_solution/variables.log file:
 
 ```
 **************** SYMBOL TABLE ****************
 
           Name       Kind Nest-Level Predefined       Type     Init-Node     Offset Dimensions  Arguments LLVMObject
 
-  0 helloworld    program          1                                                                                
+  0  variables    program          1                                                                                
   1     system      class          2        yes                                                                 null
   2    println   function          3        yes                                                         1     printf
-  3 Helloworld      class          2                                                                     Helloworld.global
-  4       main   function          3                   int        BodyOp                                0       main
+  3  Variables      class          2                                                                     Variables.global
+  4          x   variable          3                   int    UnaryNegOp          0                                 
+  5       main   function          3                   int        BodyOp                                0       main
+  6          y   variable          4                   int    NUMNode(4)          0                                y
 ************* SYNTAX TREE PRINTOUT ***********
 ...
 ```
 
-Note the LLVMObject column.  The STPrint function in proj3.cpp that prints the
-symbol table uses the getName() LLVM API to get the names of the LLVM objects
-for printing.  The names may differ depending on how you decide to name the
-objects, but you should have object attributes for the corresponding symbols.
+Note the LLVMObject column.  The STPrint function in proj3.cpp uses the
+getName() LLVM API to get the names of the LLVM objects for printing.  You can
+see the named objects in outputs_solution/variables.ll:
+
+```
+; ModuleID = 'outputs/variables.ll'
+source_filename = "outputs/variables.ll"
+
+%Variables = type { i32 }
+
+@Variables.global = global %Variables { i32 -1 }
+@string.const = private unnamed_addr constant [5 x i8] c"x = \00", align 1
+@printf.newline = private unnamed_addr constant [2 x i8] c"\0A\00", align 1
+@printf.format = private unnamed_addr constant [4 x i8] c"%d\0A\00", align 1
+@string.const.1 = private unnamed_addr constant [5 x i8] c"y = \00", align 1
+
+declare i32 @printf(...)
+
+define i32 @main() {
+entry:
+  %y = alloca i32
+  store i32 4, i32* %y
+  %0 = call i32 (...) @printf(i8* getelementptr inbounds ([5 x i8], [5 x i8]* @string.const, i32 0, i32 0))
+  %1 = call i32 (...) @printf(i8* getelementptr inbounds ([2 x i8], [2 x i8]* @printf.newline, i32 0, i32 0))
+  %2 = load i32, i32* getelementptr inbounds (%Variables, %Variables* @Variables.global, i32 0, i32 0)
+  %3 = call i32 (...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @printf.format, i32 0, i32 0), i32 %2)
+  %4 = call i32 (...) @printf(i8* getelementptr inbounds ([5 x i8], [5 x i8]* @string.const.1, i32 0, i32 0))
+  %5 = call i32 (...) @printf(i8* getelementptr inbounds ([2 x i8], [2 x i8]* @printf.newline, i32 0, i32 0))
+  %6 = load i32, i32* %y
+  %7 = call i32 (...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @printf.format, i32 0, i32 0), i32 %6)
+  ret i32 0
+}
+```
+
+The objects are either identifiers prefixed with the @ character or virtual
+registers prefixed with the % character.  They have been named that way by
+passing in the name parameter in the LLVM API that generated that code.  Then,
+you might ask, why doesn't variable 'x' have a corresponding LLVM object?
+Variable 'x' is not an LLVM object in itself, but a field of the
+Variables struct type which is the type of the Variables.global object:
+
+```
+%Variables = type { i32 }
+```
+
+In this context, the % prefix on Variables denote that Variables is a type (not
+a virtual register!).  The braces tell you that this is a struct type with
+fields and, in this case, there is only one field which is of type i32 (a
+32-bit integer, which is really the type of 'x').
+
+The initialization 'int x = -1;' in tests/variables.mjava is translated into
+this Variables.global static object initializer:
+
+```
+@Variables.global = global %Variables { i32 -1 }
+```
+
+The names in your Project 4 may differ depending on how you decide to name the
+objects, but those names should refer to the same corresponding objects in your
+code.  You can see how this can be useful in the code.  The %y object
+registered in the symbol table at stack allocation:
+
+```
+%y = alloca i32
+```
+
+can later be used when generating code for its use:
+
+```
+%6 = load i32, i32* %y
+```
+
+This should be enough explanation to get you started.  There is a silver lining
+--- when Clang converts your .ll LLVM IR code to .s machine assembly code, it
+will do a verification pass of the LLVM IR and emit compiler errors and
+warnings if you made some obvious mistake in your code (most often type errors
+or illegal control flow).  If you cannot figure out why your code is incorrect,
+feel free to refer to the .ll files under outputs_solution/.  Please do not put
+effort into making the code optimal.  That's the beauty of LLVM IR --- it is a
+code generation target but it is also an optimization target at the same time,
+so any inefficiencies in your code will be ironed out by later optimization
+compiler passes.
+
+Lastly, please read the following Appendix carefully to gain an understanding of
+MINI-JAVA semantics and LLVM objects.
 
 ## Appendix
 
-### Appendix A: Debugging
+### Appendix A: MINI-JAVA Class and Object Semantics
+
+In MINI-JAVA, variables can either be member variables (fields) of a class or
+local variables of a function (counting parameters as local variables).  This
+section is about member variables.
+
+Just like Java, MINI-JAVA has the concept of class objects.  When a class is
+declared, a class object of that class type is implicitly defined with the
+declaration.  Using the previous tests/variables.mjava example, The
+'Variables.global' class object was implicitly defined with the 'Variables'
+class type.  All class objects are instantiated in global static memory as
+shown in the example.  Member variables of a class work like static class
+variables in Java.  If you want a refresher on Java static class members, here
+is an official tutorial:
+
+https://docs.oracle.com/javase/tutorial/java/javaOO/classvars.html
+
+Class variables can be accessed using the following syntax: <Class Name>.<Member Name>.
+An example is the following line in tests/objects.mjava:
+
+```
+system.println(Point.x);
+```
+
+Or, class variables can also be access during the execution of class methods,
+shown in the following example in tests/objects.mjava:
+
+```
+Point.f1();
+```
+
+In this context, references to 'x' and 'y' in function 'f1()' refer to Point.x
+and Point.y.
+
+Now, again just like Java, MINI-JAVA also has the concept of instance objects.
+MINI-JAVA instances are all instantiated on the stack or static memory, as
+there is no concept of a heap in MINI-JAVA.  An example of a stack
+instantiation is the following local variable definition in
+tests/structs.mjava:
+
+```
+Point pointLocal;
+```
+
+An example of a static memory instantiation is the following class member
+declaration in tests/structs.mjava:
+
+```
+Point pointGlobal;
+```
+
+Another example is the following class member declaration in
+tests/objects.mjava:
+
+```
+Point p1;
+```
+
+Instance variables can be access using the following syntax: <Instance Variable
+Name>.<Member Name>.  An example is the following line in tests/objects.mjava:
+
+```
+system.println(p1.x);
+```
+
+Or, again, instance variables can also be accessed during the execution of
+instance methods, as in the following example in tests/objects.mjava:
+
+```
+p1.f1();
+```
+
+In this context, references to 'x' and 'y' in function 'f1()' refer to p1.x
+and p1.y.
+
+At this point, you may get confused.  How am I supposed to generate code for
+the 'f1()' function when variables 'x' and 'y' refer to 'Point.x' and 'Point.y'
+in one context and 'p1.x' and 'p1.y' in another?  There also can be multiple
+instances of Point such as p2, p3, and p4.  How am I to generate accesses to
+'p2.x', 'p3.x', and 'p4.x' in the calls to respective instance methods?  You
+might have guessed, but the answer is that, the object that the method is
+called upon must be implicitly passed as an argument to member methods so that
+the member method can access the proper object inside.
+
+That is why in the outputs_solution/object.ll code, the function f1() is defined as follows:
+
+```
+define void @f1(%Point* %0) {
+...
+}
+```
+
+Always, in all functions, the object that the method is called upon (in this
+case of type %Point* as it needs to pass in a pointer to a Point object) is
+passed in an implicit first parameter.  This is in fact how it is done in Java,
+C++, and most other object-oriented programming languages as well.
+
+### Appendix B: Debugging
 
 You can use the VSCode Debugger just like you did for previous projects.  You
 will have to edit the .vscode/launch.json file so that you use the mjava file
@@ -380,11 +564,13 @@ If you think you have a memory bug, you can run **valgrind** as such:
 valgrind <command line>
 ```
 
-### Appendix B: Extra Credit
+### Appendix C: Extra Credit
 
-TBA
+You are only required to complete and pass 10 test cases.  Any test case you
+complete beyond the 10 will count as 5% extra credit each.  hence, if you pass
+all 14 test cases, you can get a 120% for this project.
 
-### Appendix C: Obtaining the solution for Project 3
+### Appendix D: Obtaining the solution for Project 3
 
 If you were not able to complete Project 3, and you want to move on to Project
 3, I will provide a way forward.  Just message me on Teams.  I am going to
