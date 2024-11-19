@@ -15,7 +15,7 @@
   * [Grading](#grading)
   * [Submission](#submission)
 
-# Project 3: Semantic Analysis
+# Project 4: Semantic Analysis
 
 DUE: December 13 (Friday), 2024 11:59 PM
 
