@@ -579,9 +579,9 @@ program.
 
 ## Grading
 
-Each of the 14 tests under the tests/ folder is worth 10 points for a total of
-140 points.  A diff failure on the output for one of these .mjava files will
-result in a deduction of 10 points.
+The 14 tests under the tests/ folder is worth 10 points for the first 10 and 5
+points for each additional test for a total of 120 points (See [Appendix C:
+Extra Credit](#appendix-c-extra-credit)).  
 
 ## Submission
 
