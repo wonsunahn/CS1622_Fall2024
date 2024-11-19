@@ -1,0 +1,23 @@
+/* Function calls with parameters */
+program parameters;
+
+class Parameters
+{
+	method int product(int p; val int x, y)
+	{
+		p := x * y;
+		return p*p;	
+	}	
+
+	method int main()
+	declarations
+		int x, p;
+	enddeclarations
+	{
+		p := 0;
+		x := product(p, 3, 4);
+		system.println(p); 
+		system.println(x);
+		return 0;
+	}
+}

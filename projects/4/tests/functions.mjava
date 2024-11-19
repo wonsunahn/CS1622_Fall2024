@@ -1,0 +1,15 @@
+/* Simple function call */
+program functions;
+class Functions
+{
+	method int func()
+	{
+		return 55;
+	}
+
+	method int main()
+	{
+		system.println(func()+func());
+		return 0;
+	}
+}

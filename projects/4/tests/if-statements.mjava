@@ -1,0 +1,19 @@
+/* An if statement */
+program ifstatements;
+class IfStatements
+{
+    declarations
+        int x=-1;
+    enddeclarations
+    method int main()
+    declarations
+        int x=4;
+    enddeclarations
+    {
+        if (x>=0)
+        {
+            system.println('x>=0'); 
+        };
+        return 0;
+    }
+}

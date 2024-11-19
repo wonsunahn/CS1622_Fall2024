@@ -1,0 +1,38 @@
+/* Multiple classes in a single program */
+program multiclass;
+class Rect
+{
+	declarations
+		int width=3, length=7;
+	enddeclarations
+	method int getArea()
+	{
+		system.println('width & length: '); 
+		system.println(width);
+		system.println(length); 
+		return (width * length); 
+	}
+}
+
+class Main
+{
+	declarations
+		int len;
+	enddeclarations
+	method int main()
+	declarations
+		int area; 
+	enddeclarations
+	{
+		if( Rect.width > 0 )
+        {
+			Rect.width := 5;
+        };
+		Rect.getArea();
+		Rect.length := 4;
+		area := Rect.getArea();
+		system.println(area);
+		system.println(Rect.getArea());
+		return 0;
+	}
+}

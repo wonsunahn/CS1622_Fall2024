@@ -1,0 +1,27 @@
+/* fib: Fibonacci sequence using recursion */
+program array1d;
+class Array1D {
+    declarations
+		int[] arrMember = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+	enddeclarations
+    method int main()
+    declarations
+		int[] arrLocal = int[10];
+        int i;
+	enddeclarations
+    {
+        i := 0;
+        while (i < 10)
+        {
+            arrLocal[i] := arrMember[i];
+            i := i + 1;
+        };
+        i := 0;
+        while (i < 10)
+        {
+            system.println(arrLocal[i]);
+            i := i + 1;
+        };
+        return 0;
+    }
+}

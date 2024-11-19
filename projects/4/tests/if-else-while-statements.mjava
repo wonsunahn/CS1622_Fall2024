@@ -1,0 +1,39 @@
+/* If-else and while statements */
+program ifelsewhile;
+class IfElseWhile
+{
+	method int main()
+	declarations
+		int x;
+		int y;
+	enddeclarations
+	{
+		system.println('x=?');
+		system.readln(x);
+		if (x>10)
+		{
+			system.println('>10');
+			return 0;
+		}
+		else if (x>5)
+		{
+			system.println('>5');
+		}
+		else
+		{
+			system.println('<=5');
+		};
+
+		x := 1;
+		y := 0;
+		while (x <= 10)
+		{
+			y := y + x;
+			x := x + 1;
+		};
+		system.println('y=');
+		system.println(y);
+		return 0;
+	}
+}
+

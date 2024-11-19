@@ -1,0 +1,9 @@
+diffs/
+outputs/
+examples_outputs/
+*.o
+lex.yy.c
+y.tab.*
+y.output
+codegen
+.DS_Store

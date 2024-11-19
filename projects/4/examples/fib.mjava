@@ -1,0 +1,31 @@
+/* fib: Fibonacci sequence using recursion */
+program fib;
+class Fib {
+    method int fib(int i)
+    declarations
+		int ret;
+	enddeclarations
+    {
+        if (i < 3)
+        {
+            ret := 1;
+        }
+        else
+        {
+            ret := fib(i-1) + fib(i-2);
+        };
+        return ret;
+    }
+    method int main()
+    declarations
+		int i = 1;
+	enddeclarations
+    {
+        while (i < 10)
+        {
+            i := i + 1;
+            system.println(fib(i));
+        };
+        return 0;
+    }
+}

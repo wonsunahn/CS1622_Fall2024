@@ -1,0 +1,25 @@
+/* fib: Fibonacci sequence using recursion */
+program array2d;
+class Array2D {
+    declarations
+		int[][] arr = int[3][4];
+	enddeclarations
+    method int main()
+    declarations
+        int i = 0, j = 0;
+	enddeclarations
+    {
+        while (i < 3)
+        {
+            j := 0;
+            while (j < 4)
+            {
+                arr[i][j] := i * 4 + j;
+                system.println(arr[i][j]);
+                j := j + 1;
+            };
+            i := i + 1;
+        };
+        return 0;
+    }
+}

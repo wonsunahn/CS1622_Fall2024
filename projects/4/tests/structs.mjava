@@ -1,0 +1,30 @@
+/* fib: Fibonacci sequence using recursion */
+program structs;
+
+class Point
+{
+    declarations
+		int x = 10;
+        int y = 20;
+	enddeclarations
+}
+
+class Structs
+{
+    declarations
+		Point pointGlobal;
+	enddeclarations
+    method int main()
+    declarations
+		Point pointLocal;
+	enddeclarations
+    {
+        pointLocal.x := pointGlobal.x;
+        pointLocal.y := pointGlobal.y;
+        system.println(pointGlobal.x);
+        system.println(pointGlobal.y);
+        system.println(pointLocal.x);
+        system.println(pointLocal.y);
+        return 0;
+    }
+}
