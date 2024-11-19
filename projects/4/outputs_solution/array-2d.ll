@@ -18,8 +18,8 @@ entry:
 
 loopcond:                                         ; preds = %loopend3, %entry
   %0 = load i32, i32* %i
-  %slt = icmp slt i32 %0, 3
-  br i1 %slt, label %loopbody, label %loopend
+  %1 = icmp slt i32 %0, 3
+  br i1 %1, label %loopbody, label %loopend
 
 loopbody:                                         ; preds = %loopcond
   store i32 0, i32* %j
@@ -29,34 +29,34 @@ loopend:                                          ; preds = %loopcond
   ret i32 0
 
 loopcond1:                                        ; preds = %loopbody2, %loopbody
-  %1 = load i32, i32* %j
-  %slt4 = icmp slt i32 %1, 4
-  br i1 %slt4, label %loopbody2, label %loopend3
+  %2 = load i32, i32* %j
+  %3 = icmp slt i32 %2, 4
+  br i1 %3, label %loopbody2, label %loopend3
 
 loopbody2:                                        ; preds = %loopcond1
-  %2 = load i32, i32* %i
-  %array.element = getelementptr inbounds [4 x [3 x i32]], [4 x [3 x i32]]* getelementptr inbounds (%Array2D, %Array2D* @Array2D.global, i32 0, i32 0), i32 0, i32 %2
-  %3 = load i32, i32* %j
-  %array.element5 = getelementptr inbounds [3 x i32], [3 x i32]* %array.element, i32 0, i32 %3
   %4 = load i32, i32* %i
-  %mul = mul i32 %4, 4
+  %array.element = getelementptr inbounds [4 x [3 x i32]], [4 x [3 x i32]]* getelementptr inbounds (%Array2D, %Array2D* @Array2D.global, i32 0, i32 0), i32 0, i32 %4
   %5 = load i32, i32* %j
-  %add = add i32 %mul, %5
-  store i32 %add, i32* %array.element5
+  %array.element4 = getelementptr inbounds [3 x i32], [3 x i32]* %array.element, i32 0, i32 %5
   %6 = load i32, i32* %i
-  %array.element6 = getelementptr inbounds [4 x [3 x i32]], [4 x [3 x i32]]* getelementptr inbounds (%Array2D, %Array2D* @Array2D.global, i32 0, i32 0), i32 0, i32 %6
-  %7 = load i32, i32* %j
-  %array.element7 = getelementptr inbounds [3 x i32], [3 x i32]* %array.element6, i32 0, i32 %7
-  %8 = load i32, i32* %array.element7
-  %9 = call i32 (...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @printf.format, i32 0, i32 0), i32 %8)
-  %10 = load i32, i32* %j
-  %add8 = add i32 %10, 1
-  store i32 %add8, i32* %j
+  %7 = mul i32 %6, 4
+  %8 = load i32, i32* %j
+  %9 = add i32 %7, %8
+  store i32 %9, i32* %array.element4
+  %10 = load i32, i32* %i
+  %array.element5 = getelementptr inbounds [4 x [3 x i32]], [4 x [3 x i32]]* getelementptr inbounds (%Array2D, %Array2D* @Array2D.global, i32 0, i32 0), i32 0, i32 %10
+  %11 = load i32, i32* %j
+  %array.element6 = getelementptr inbounds [3 x i32], [3 x i32]* %array.element5, i32 0, i32 %11
+  %12 = load i32, i32* %array.element6
+  %13 = call i32 (...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @printf.format, i32 0, i32 0), i32 %12)
+  %14 = load i32, i32* %j
+  %15 = add i32 %14, 1
+  store i32 %15, i32* %j
   br label %loopcond1
 
 loopend3:                                         ; preds = %loopcond1
-  %11 = load i32, i32* %i
-  %add9 = add i32 %11, 1
-  store i32 %add9, i32* %i
+  %16 = load i32, i32* %i
+  %17 = add i32 %16, 1
+  store i32 %17, i32* %i
   br label %loopcond
 }

@@ -30,13 +30,13 @@ entry:
   %11 = getelementptr inbounds %Point, %Point* %0, i32 0, i32 0
   %12 = getelementptr inbounds %Point, %Point* %0, i32 0, i32 0
   %13 = load i32, i32* %12
-  %add = add i32 %13, 1
-  store i32 %add, i32* %11
-  %14 = getelementptr inbounds %Point, %Point* %0, i32 0, i32 1
+  %14 = add i32 %13, 1
+  store i32 %14, i32* %11
   %15 = getelementptr inbounds %Point, %Point* %0, i32 0, i32 1
-  %16 = load i32, i32* %15
-  %add1 = add i32 %16, 2
-  store i32 %add1, i32* %14
+  %16 = getelementptr inbounds %Point, %Point* %0, i32 0, i32 1
+  %17 = load i32, i32* %16
+  %18 = add i32 %17, 2
+  store i32 %18, i32* %15
   ret void
 }
 

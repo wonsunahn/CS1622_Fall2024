@@ -17,7 +17,7 @@ define i32 @main() {
 entry:
   %0 = call i32 @func(%Functions* @Functions.global)
   %1 = call i32 @func(%Functions* @Functions.global)
-  %add = add i32 %0, %1
-  %2 = call i32 (...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @printf.format, i32 0, i32 0), i32 %add)
+  %2 = add i32 %0, %1
+  %3 = call i32 (...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @printf.format, i32 0, i32 0), i32 %2)
   ret i32 0
 }

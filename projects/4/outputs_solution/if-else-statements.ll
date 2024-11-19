@@ -19,8 +19,8 @@ entry:
   %i = alloca i32
   %0 = call i32 (...) @scanf(i8* getelementptr inbounds ([3 x i8], [3 x i8]* @scanf.format, i32 0, i32 0), i32* %x)
   %1 = load i32, i32* %x
-  %sgt = icmp sgt i32 %1, 10
-  br i1 %sgt, label %then, label %else
+  %2 = icmp sgt i32 %1, 10
+  br i1 %2, label %then, label %else
 
 then:                                             ; preds = %entry
   store i32 1, i32* %i
@@ -30,31 +30,31 @@ else:                                             ; preds = %entry
   br label %ifcont
 
 ifcont:                                           ; preds = %else, %then
-  %2 = load i32, i32* %x
-  %sgt1 = icmp sgt i32 %2, 6
-  br i1 %sgt1, label %then2, label %else3
-
-then2:                                            ; preds = %ifcont
-  store i32 2, i32* %i
-  br label %ifcont7
-
-else3:                                            ; preds = %ifcont
   %3 = load i32, i32* %x
-  %sgt4 = icmp sgt i32 %3, 3
-  br i1 %sgt4, label %then5, label %else6
+  %4 = icmp sgt i32 %3, 6
+  br i1 %4, label %then1, label %else2
 
-then5:                                            ; preds = %else3
+then1:                                            ; preds = %ifcont
+  store i32 2, i32* %i
+  br label %ifcont5
+
+else2:                                            ; preds = %ifcont
+  %5 = load i32, i32* %x
+  %6 = icmp sgt i32 %5, 3
+  br i1 %6, label %then3, label %else4
+
+then3:                                            ; preds = %else2
   store i32 3, i32* %i
-  br label %ifcont7
+  br label %ifcont5
 
-else6:                                            ; preds = %else3
+else4:                                            ; preds = %else2
   store i32 4, i32* %i
-  br label %ifcont7
+  br label %ifcont5
 
-ifcont7:                                          ; preds = %else6, %then5, %then2
-  %4 = call i32 (...) @printf(i8* getelementptr inbounds ([3 x i8], [3 x i8]* @string.const, i32 0, i32 0))
-  %5 = call i32 (...) @printf(i8* getelementptr inbounds ([2 x i8], [2 x i8]* @printf.newline, i32 0, i32 0))
-  %6 = load i32, i32* %i
-  %7 = call i32 (...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @printf.format, i32 0, i32 0), i32 %6)
+ifcont5:                                          ; preds = %else4, %then3, %then1
+  %7 = call i32 (...) @printf(i8* getelementptr inbounds ([3 x i8], [3 x i8]* @string.const, i32 0, i32 0))
+  %8 = call i32 (...) @printf(i8* getelementptr inbounds ([2 x i8], [2 x i8]* @printf.newline, i32 0, i32 0))
+  %9 = load i32, i32* %i
+  %10 = call i32 (...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @printf.format, i32 0, i32 0), i32 %9)
   ret i32 0
 }

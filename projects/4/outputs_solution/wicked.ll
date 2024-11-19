@@ -32,44 +32,44 @@ entry:
   %8 = load i32, i32* %7
   %9 = getelementptr inbounds %Point0, %Point0* %0, i32 0, i32 2
   %10 = load i32, i32* %9
-  %mul = mul i32 %8, %10
-  store i32 %mul, i32* %6
-  %11 = getelementptr inbounds %Point0, %Point0* %0, i32 0, i32 1
-  store i32 1, i32* %11
+  %11 = mul i32 %8, %10
+  store i32 %11, i32* %6
+  %12 = getelementptr inbounds %Point0, %Point0* %0, i32 0, i32 1
+  store i32 1, i32* %12
   br label %loopcond
 
 loopcond:                                         ; preds = %loopbody, %entry
-  %12 = getelementptr inbounds %Point0, %Point0* %0, i32 0, i32 1
-  %13 = load i32, i32* %12
-  %slt = icmp slt i32 %13, 12
-  br i1 %slt, label %loopbody, label %loopend
+  %13 = getelementptr inbounds %Point0, %Point0* %0, i32 0, i32 1
+  %14 = load i32, i32* %13
+  %15 = icmp slt i32 %14, 12
+  br i1 %15, label %loopbody, label %loopend
 
 loopbody:                                         ; preds = %loopcond
-  %14 = getelementptr inbounds %Point0, %Point0* %0, i32 0, i32 0
-  %15 = getelementptr inbounds %Point0, %Point0* %0, i32 0, i32 1
-  %16 = load i32, i32* %15
-  %array.element = getelementptr inbounds [12 x i32], [12 x i32]* %14, i32 0, i32 %16
-  %17 = getelementptr inbounds %Point0, %Point0* %0, i32 0, i32 0
-  %18 = getelementptr inbounds %Point0, %Point0* %0, i32 0, i32 1
-  %19 = load i32, i32* %18
-  %sub = sub i32 %19, 1
-  %array.element1 = getelementptr inbounds [12 x i32], [12 x i32]* %17, i32 0, i32 %sub
-  %20 = load i32, i32* %array.element1
-  %add = add i32 %20, 1
-  store i32 %add, i32* %array.element
-  %21 = getelementptr inbounds %Point0, %Point0* %0, i32 0, i32 1
-  %22 = getelementptr inbounds %Point0, %Point0* %0, i32 0, i32 1
-  %23 = load i32, i32* %22
-  %add2 = add i32 %23, 1
-  store i32 %add2, i32* %21
+  %16 = getelementptr inbounds %Point0, %Point0* %0, i32 0, i32 0
+  %17 = getelementptr inbounds %Point0, %Point0* %0, i32 0, i32 1
+  %18 = load i32, i32* %17
+  %array.element = getelementptr inbounds [12 x i32], [12 x i32]* %16, i32 0, i32 %18
+  %19 = getelementptr inbounds %Point0, %Point0* %0, i32 0, i32 0
+  %20 = getelementptr inbounds %Point0, %Point0* %0, i32 0, i32 1
+  %21 = load i32, i32* %20
+  %22 = sub i32 %21, 1
+  %array.element1 = getelementptr inbounds [12 x i32], [12 x i32]* %19, i32 0, i32 %22
+  %23 = load i32, i32* %array.element1
+  %24 = add i32 %23, 1
+  store i32 %24, i32* %array.element
+  %25 = getelementptr inbounds %Point0, %Point0* %0, i32 0, i32 1
+  %26 = getelementptr inbounds %Point0, %Point0* %0, i32 0, i32 1
+  %27 = load i32, i32* %26
+  %28 = add i32 %27, 1
+  store i32 %28, i32* %25
   br label %loopcond
 
 loopend:                                          ; preds = %loopcond
-  %24 = call i32 (...) @printf(i8* getelementptr inbounds ([9 x i8], [9 x i8]* @string.const.1, i32 0, i32 0))
-  %25 = call i32 (...) @printf(i8* getelementptr inbounds ([2 x i8], [2 x i8]* @printf.newline, i32 0, i32 0))
-  %26 = getelementptr inbounds %Point0, %Point0* %0, i32 0, i32 2
-  %27 = load i32, i32* %26
-  %28 = call i32 (...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @printf.format, i32 0, i32 0), i32 %27)
+  %29 = call i32 (...) @printf(i8* getelementptr inbounds ([9 x i8], [9 x i8]* @string.const.1, i32 0, i32 0))
+  %30 = call i32 (...) @printf(i8* getelementptr inbounds ([2 x i8], [2 x i8]* @printf.newline, i32 0, i32 0))
+  %31 = getelementptr inbounds %Point0, %Point0* %0, i32 0, i32 2
+  %32 = load i32, i32* %31
+  %33 = call i32 (...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @printf.format, i32 0, i32 0), i32 %32)
   ret void
 }
 
@@ -123,26 +123,26 @@ entry:
 
 loopcond:                                         ; preds = %loopbody, %entry
   %11 = load i32, i32* getelementptr inbounds (%Point2, %Point2* @Point2.global, i32 0, i32 2)
-  %slt = icmp slt i32 %11, 12
-  br i1 %slt, label %loopbody, label %loopend
+  %12 = icmp slt i32 %11, 12
+  br i1 %12, label %loopbody, label %loopend
 
 loopbody:                                         ; preds = %loopcond
-  %12 = call i32 (...) @printf(i8* getelementptr inbounds ([11 x i8], [11 x i8]* @string.const.5, i32 0, i32 0))
-  %13 = call i32 (...) @printf(i8* getelementptr inbounds ([2 x i8], [2 x i8]* @printf.newline, i32 0, i32 0))
-  %14 = load i32, i32* getelementptr inbounds (%Point2, %Point2* @Point2.global, i32 0, i32 2)
-  %array.element = getelementptr inbounds [12 x i32], [12 x i32]* getelementptr inbounds (%Point2, %Point2* @Point2.global, i32 0, i32 1, i32 0), i32 0, i32 %14
-  %15 = load i32, i32* %array.element
-  %16 = call i32 (...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @printf.format, i32 0, i32 0), i32 %15)
-  %17 = load i32, i32* getelementptr inbounds (%Point2, %Point2* @Point2.global, i32 0, i32 2)
-  %add = add i32 %17, 1
-  store i32 %add, i32* getelementptr inbounds (%Point2, %Point2* @Point2.global, i32 0, i32 2)
+  %13 = call i32 (...) @printf(i8* getelementptr inbounds ([11 x i8], [11 x i8]* @string.const.5, i32 0, i32 0))
+  %14 = call i32 (...) @printf(i8* getelementptr inbounds ([2 x i8], [2 x i8]* @printf.newline, i32 0, i32 0))
+  %15 = load i32, i32* getelementptr inbounds (%Point2, %Point2* @Point2.global, i32 0, i32 2)
+  %array.element = getelementptr inbounds [12 x i32], [12 x i32]* getelementptr inbounds (%Point2, %Point2* @Point2.global, i32 0, i32 1, i32 0), i32 0, i32 %15
+  %16 = load i32, i32* %array.element
+  %17 = call i32 (...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @printf.format, i32 0, i32 0), i32 %16)
+  %18 = load i32, i32* getelementptr inbounds (%Point2, %Point2* @Point2.global, i32 0, i32 2)
+  %19 = add i32 %18, 1
+  store i32 %19, i32* getelementptr inbounds (%Point2, %Point2* @Point2.global, i32 0, i32 2)
   br label %loopcond
 
 loopend:                                          ; preds = %loopcond
   call void @f1(%Point1* @Point1.global)
-  %18 = call i32 (...) @printf(i8* getelementptr inbounds ([7 x i8], [7 x i8]* @string.const.6, i32 0, i32 0))
-  %19 = call i32 (...) @printf(i8* getelementptr inbounds ([2 x i8], [2 x i8]* @printf.newline, i32 0, i32 0))
-  %20 = load i32, i32* getelementptr inbounds (%Point2, %Point2* @Point2.global, i32 0, i32 1, i32 2)
-  %21 = call i32 (...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @printf.format, i32 0, i32 0), i32 %20)
+  %20 = call i32 (...) @printf(i8* getelementptr inbounds ([7 x i8], [7 x i8]* @string.const.6, i32 0, i32 0))
+  %21 = call i32 (...) @printf(i8* getelementptr inbounds ([2 x i8], [2 x i8]* @printf.newline, i32 0, i32 0))
+  %22 = load i32, i32* getelementptr inbounds (%Point2, %Point2* @Point2.global, i32 0, i32 1, i32 2)
+  %23 = call i32 (...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @printf.format, i32 0, i32 0), i32 %22)
   ret i32 0
 }

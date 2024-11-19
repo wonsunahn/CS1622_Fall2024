@@ -14,12 +14,12 @@ entry:
   %x = alloca i32
   store i32 4, i32* %x
   %0 = load i32, i32* %x
-  %sge = icmp sge i32 %0, 0
-  br i1 %sge, label %then, label %else
+  %1 = icmp sge i32 %0, 0
+  br i1 %1, label %then, label %else
 
 then:                                             ; preds = %entry
-  %1 = call i32 (...) @printf(i8* getelementptr inbounds ([5 x i8], [5 x i8]* @string.const, i32 0, i32 0))
-  %2 = call i32 (...) @printf(i8* getelementptr inbounds ([2 x i8], [2 x i8]* @printf.newline, i32 0, i32 0))
+  %2 = call i32 (...) @printf(i8* getelementptr inbounds ([5 x i8], [5 x i8]* @string.const, i32 0, i32 0))
+  %3 = call i32 (...) @printf(i8* getelementptr inbounds ([2 x i8], [2 x i8]* @printf.newline, i32 0, i32 0))
   br label %ifcont
 
 else:                                             ; preds = %entry

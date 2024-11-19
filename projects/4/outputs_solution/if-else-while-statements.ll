@@ -25,53 +25,53 @@ entry:
   %1 = call i32 (...) @printf(i8* getelementptr inbounds ([2 x i8], [2 x i8]* @printf.newline, i32 0, i32 0))
   %2 = call i32 (...) @scanf(i8* getelementptr inbounds ([3 x i8], [3 x i8]* @scanf.format, i32 0, i32 0), i32* %x)
   %3 = load i32, i32* %x
-  %sgt = icmp sgt i32 %3, 10
-  br i1 %sgt, label %then, label %else
+  %4 = icmp sgt i32 %3, 10
+  br i1 %4, label %then, label %else
 
 then:                                             ; preds = %entry
-  %4 = call i32 (...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @string.const.1, i32 0, i32 0))
-  %5 = call i32 (...) @printf(i8* getelementptr inbounds ([2 x i8], [2 x i8]* @printf.newline, i32 0, i32 0))
+  %5 = call i32 (...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @string.const.1, i32 0, i32 0))
+  %6 = call i32 (...) @printf(i8* getelementptr inbounds ([2 x i8], [2 x i8]* @printf.newline, i32 0, i32 0))
   ret i32 0
 
 else:                                             ; preds = %entry
-  %6 = load i32, i32* %x
-  %sgt1 = icmp sgt i32 %6, 5
-  br i1 %sgt1, label %then2, label %else3
+  %7 = load i32, i32* %x
+  %8 = icmp sgt i32 %7, 5
+  br i1 %8, label %then1, label %else2
 
-then2:                                            ; preds = %else
-  %7 = call i32 (...) @printf(i8* getelementptr inbounds ([3 x i8], [3 x i8]* @string.const.2, i32 0, i32 0))
-  %8 = call i32 (...) @printf(i8* getelementptr inbounds ([2 x i8], [2 x i8]* @printf.newline, i32 0, i32 0))
-  br label %ifcont
-
-else3:                                            ; preds = %else
-  %9 = call i32 (...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @string.const.3, i32 0, i32 0))
+then1:                                            ; preds = %else
+  %9 = call i32 (...) @printf(i8* getelementptr inbounds ([3 x i8], [3 x i8]* @string.const.2, i32 0, i32 0))
   %10 = call i32 (...) @printf(i8* getelementptr inbounds ([2 x i8], [2 x i8]* @printf.newline, i32 0, i32 0))
   br label %ifcont
 
-ifcont:                                           ; preds = %else3, %then2
+else2:                                            ; preds = %else
+  %11 = call i32 (...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @string.const.3, i32 0, i32 0))
+  %12 = call i32 (...) @printf(i8* getelementptr inbounds ([2 x i8], [2 x i8]* @printf.newline, i32 0, i32 0))
+  br label %ifcont
+
+ifcont:                                           ; preds = %else2, %then1
   store i32 1, i32* %x
   store i32 0, i32* %y
   br label %loopcond
 
 loopcond:                                         ; preds = %loopbody, %ifcont
-  %11 = load i32, i32* %x
-  %sle = icmp sle i32 %11, 10
-  br i1 %sle, label %loopbody, label %loopend
+  %13 = load i32, i32* %x
+  %14 = icmp sle i32 %13, 10
+  br i1 %14, label %loopbody, label %loopend
 
 loopbody:                                         ; preds = %loopcond
-  %12 = load i32, i32* %y
-  %13 = load i32, i32* %x
-  %add = add i32 %12, %13
-  store i32 %add, i32* %y
-  %14 = load i32, i32* %x
-  %add4 = add i32 %14, 1
-  store i32 %add4, i32* %x
+  %15 = load i32, i32* %y
+  %16 = load i32, i32* %x
+  %17 = add i32 %15, %16
+  store i32 %17, i32* %y
+  %18 = load i32, i32* %x
+  %19 = add i32 %18, 1
+  store i32 %19, i32* %x
   br label %loopcond
 
 loopend:                                          ; preds = %loopcond
-  %15 = call i32 (...) @printf(i8* getelementptr inbounds ([3 x i8], [3 x i8]* @string.const.4, i32 0, i32 0))
-  %16 = call i32 (...) @printf(i8* getelementptr inbounds ([2 x i8], [2 x i8]* @printf.newline, i32 0, i32 0))
-  %17 = load i32, i32* %y
-  %18 = call i32 (...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @printf.format, i32 0, i32 0), i32 %17)
+  %20 = call i32 (...) @printf(i8* getelementptr inbounds ([3 x i8], [3 x i8]* @string.const.4, i32 0, i32 0))
+  %21 = call i32 (...) @printf(i8* getelementptr inbounds ([2 x i8], [2 x i8]* @printf.newline, i32 0, i32 0))
+  %22 = load i32, i32* %y
+  %23 = call i32 (...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @printf.format, i32 0, i32 0), i32 %22)
   ret i32 0
 }

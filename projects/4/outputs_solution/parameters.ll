@@ -18,12 +18,12 @@ entry:
   store i32 %3, i32* %y
   %4 = load i32, i32* %x
   %5 = load i32, i32* %y
-  %mul = mul i32 %4, %5
-  store i32 %mul, i32* %p
-  %6 = load i32, i32* %p
+  %6 = mul i32 %4, %5
+  store i32 %6, i32* %p
   %7 = load i32, i32* %p
-  %mul1 = mul i32 %6, %7
-  ret i32 %mul1
+  %8 = load i32, i32* %p
+  %9 = mul i32 %7, %8
+  ret i32 %9
 }
 
 define i32 @main() {
