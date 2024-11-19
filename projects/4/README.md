@@ -1,4 +1,4 @@
-- [Project 4: Semantic Analysis](#project-4--semantic-analysis)
+- [Project 4: Code Generation](#project-4--code-generation)
   * [Description](#description)
   * [Codespace Development Environment](#codespace-development-environment)
   * [Directory Structure and Makefile Script](#directory-structure-and-makefile-script)
@@ -14,7 +14,7 @@
   * [Grading](#grading)
   * [Submission](#submission)
 
-# Project 4: Semantic Analysis
+# Project 4: Code Generation
 
 DUE: December 13 (Friday), 2024 11:59 PM
 
