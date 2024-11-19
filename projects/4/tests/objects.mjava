@@ -27,8 +27,13 @@ class Main
     {
         Point.f1();
         Point.f1();
+        p1.x := 5;
         p1.f1();
         p1.f1();
+        system.println('Point.x=');
+        system.println(Point.x);
+        system.println('p1.x=');
+        system.println(p1.x);
         return 0;
     }
 }
