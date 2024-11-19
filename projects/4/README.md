@@ -8,9 +8,10 @@
     + [Completing codegen.cpp](#completing-codegencpp)
   * [Appendix](#appendix)
     + [Appendix A: MINI-JAVA Class and Object Semantics](#appendix-a-mini-java-class-and-object-semantics)
-    + [Appendix B: Debugging](#appendix-b-debugging)
-    + [Appendix C: Extra Credit](#appendix-c-extra-credit)
-    + [Appendix D: Obtaining the solution for Project 3](#appendix-d-obtaining-the-solution-for-project-3)
+    + [Appendix B: LLVM Objects and API](#appendix-b-llvm-objects-and-api)
+    + [Appendix C: Debugging](#appendix-c-debugging)
+    + [Appendix D: Extra Credit](#appendix-d-extra-credit)
+    + [Appendix E: Obtaining the solution for Project 3](#appendix-e-obtaining-the-solution-for-project-3)
   * [Grading](#grading)
   * [Submission](#submission)
 
@@ -549,7 +550,47 @@ case of type %Point* as it needs to pass in a pointer to a Point object) is
 passed in an implicit first parameter.  This is in fact how it is done in Java,
 C++, and most other object-oriented programming languages as well.
 
-### Appendix B: Debugging
+### Appendix B: LLVM Objects and API
+
+Please refer to the official LLVM doxygen documentation for the LLVM API:
+https://llvm.org/doxygen/index.html
+
+Important LLVM classes to understand are llvm::Value, llvm::Type, and
+llvm::IRBuilder:
+
+https://llvm.org/doxygen/classllvm_1_1Value.html
+
+https://llvm.org/doxygen/classllvm_1_1Type.html
+
+https://llvm.org/doxygen/classllvm_1_1IRBuilderBase.html
+
+The llvm::Value class is an an all encompassing type that can refer to any LLVM
+object.  Basically all LLVM object classes are inherited from llvm::Value,
+including operators, instructions, variables, constants, basic blocks, and
+functions.  You might ask, how can variables ad instructions all be values?
+Remember, LLVM IR is in SSA (Static Single Assignment) form, so any operator,
+instruction, or function call that returns a value is associated with a unique
+virtual register containing a unique value.  So values and instructions can be
+used interchangeable in LLVM IR.  That is why, for example, an LLVM object
+representing a stack local variable has type 'AllocaInst*'.  Instructions that
+use that stack local variable would be referencing the virtual register that
+represents that local variable, and that virtual register can be referred to by
+the alloca instruction that produces that virtual register.
+
+The llvm::Type class is the parent class for various types like
+llvm::StructType or llvm::ArrayType.  You will have to construct appropriate
+type objects for the definition of MINI-JAVA variables of various types.
+
+The llvm::IRBuilder class is the class that contains APIs to build the LLVM IR.
+It contains APIs like 'CreateLoad' or 'CreateStore' to generate instructions to
+load and store from memory locations, and much more.  The important thing to
+remember about the IRBuilder is that you need to first specify an instruction
+insertion point by using the [SetInsertPoint
+API](https://llvm.org/doxygen/classllvm_1_1IRBuilderBase.html#ace45cae6925c65e9d6916e09dd5b17cc)
+before you start generating instructions.  Otherwise, IRBuilder would not know
+where to generate the instructions.
+
+### Appendix C: Debugging
 
 You can use the VSCode Debugger just like you did for previous projects.  You
 will have to edit the .vscode/launch.json file so that you use the mjava file
@@ -564,13 +605,13 @@ If you think you have a memory bug, you can run **valgrind** as such:
 valgrind <command line>
 ```
 
-### Appendix C: Extra Credit
+### Appendix D: Extra Credit
 
 You are only required to complete and pass 10 test cases.  Any test case you
 complete beyond the 10 will count as 5% extra credit each.  hence, if you pass
 all 14 test cases, you can get a 120% for this project.
 
-### Appendix D: Obtaining the solution for Project 3
+### Appendix E: Obtaining the solution for Project 3
 
 If you were not able to complete Project 3, and you want to move on to Project
 3, I will provide a way forward.  Just message me on Teams.  I am going to
@@ -580,8 +621,8 @@ program.
 ## Grading
 
 The 14 tests under the tests/ folder is worth 10 points for the first 10 and 5
-points for each additional test for a total of 120 points (See [Appendix C:
-Extra Credit](#appendix-c-extra-credit)).  
+points for each additional test for a total of 120 points (See [Appendix D:
+Extra Credit](#appendix-d-extra-credit)).
 
 ## Submission
 
