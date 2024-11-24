@@ -99,6 +99,8 @@ Here is an overview of the directory structure in alphabetical order.  The files
 * outputs/ : Directory where outputs after running your parser on source files under tests/ are stored.
 * outputs_solution/ : Directory where solution outputs after running the reference parser on source files under tests/ are stored.
 * tests/ : Source files for testing and grading your parser.
+* errors/, error_outputs/, error_outputs_solution/, error_diffs/ : Error handling related test folders.  See [Appendix D: Extra Credit](#appendix-d-extra-credit) for details.
+* line_outputs/, line_outputs_solution/, line_diffs/ : Error line number printing related test folders.  See [Appendix D: Extra Credit](#appendix-d-extra-credit) for details.
 
 As mentioned above, in order to just build the parser binary, you only need to invoke the build make target:
 
@@ -370,17 +372,74 @@ valgrind <command line>
 
 ### Appendix D: Extra Credit
 
-I plan on two types of extra credit for this project:
+Before you attempt the extra credit, you need to do some file updates.  Please
+sync your forked GitHub Classroom repository with the upstream changes I made
+to enable the extra credit.  All you need to do is click on the Sync Fork
+button on your repository main Code page shown by the red arrow in the below
+image:
 
-1. Keeping track of line numbers in the syntax tree so that symbols are
-associated with line numbers in the symbol table and also semantic errors point
-to line numbers where the errors are happening.
+![Sync Fork](imgs/sync_fork.png "The Sync Fork button.")
 
-1. Checking and emitting various kinds of semantic errors defined in the
-**ErrorMessage** function.
+It should work without a hitch, but just in case, make sure that your
+STAddPredefined() implementation code in proj3.cpp remains intact.  If not, you
+can easily revive the code from your immediate previous version.
 
-I will announce it when the extra credit is ready for your consumption, within
-a week of project release.
+The following folders are relevant to the extra credit:
+
+* line_outputs/ : Directory where outputs of your parser from compiling the tests/ MINI-JAVA files when enabling the -l option (which prints out line numbers of symbols in the symbol table).
+* line_outputs_solution/ : Directory for solution outputs for the above.
+* line_diffs/ : Directory for diffs of your output and the solution output.
+* errors/ : Directory where additional MINI-JAVA test files that test various aspects of your error handling reside.
+* error_outputs/ : Directory where outputs of your parser from compiling the errors/ MINI-JAVA files when enabling the -w option (which enables warning and error output).
+* error_outputs_solution/ : Directory for solution outputs for the above.
+* error_diffs/ : Directory for diffs of your output and the solution output.
+
+The extra credit involves the following work:
+
+1. **Associating STNodes with line numbers in grammar.y and semantic.cpp** : In order to be able
+to report line numbers when semantic errors are emitted, I ask that you
+associate all STNodes in the syntax tree with a line number by updating the
+**LineNo** field in the treenode for each STNode.  I also ask you to set the
+LINENO_ATTR attribute when adding the relevant symbol to the symbol table.
+
+   In order to do this, first, you will need to add code to grammar.y so that
+you update IDNodes with the correct line number when they are added.  To obtain
+the line number where the symbol appears, you will have insert semantic actions
+in the middle of grammar rules.  If you wait until the end of a grammar rule
+(i.e. when the relevant non-terminal is reduced) to insert the semantic action
+for obtaining the line number, it will likely be too late.  For example, say
+the symbol is the name of a class.  If you wait until the entire class
+non-terminal is reduced to obtain the line number for the class name, your line
+number is going to point to the end of the class definition (the end right
+curly brace) by that time.  Please refer to the YACC manual in the course
+repository resources/ folder to understand how to add actions to the middle of
+a rule.
+
+   After all IDNodes acquire correct line numbers in the syntax analysis stage,
+all you have to do in the semantic analysis stage is to, when replaced IDNodes
+to STNodes, inheriting the line number from the original IDNodes.
+
+   The line_diffs/ folder tests this part of the extra credit.  You will get a
+maximum of 10 extra points for this part.  Every diff that fails will result in
+a -1 deduction down to 0 at the minimum.
+
+1. **Writing error handling code in semantic.cpp** : Please complete the
+previous part before getting started on this part.  If you are not able to
+report correct line numbers, the errors will be meaningless to the programmer
+and you will not receive any points for this part, even if you do correct error
+handling.  You will need to augment your semantic analysis phase with various
+error handling code and invoke the **ErrorMessage** function with the relevant
+error code defined in proj3.h, when an error is detected.  You are expected to
+detect and report multiple errors at one compilation session.
+
+   The error_diffs/ folder tests this part of the extra credit.  You will get a
+maximum of 15 extra points for this part.  There are 7 erroneous MINI-JAVA
+files under errors/ and you will get 2 points for each, except for
+type_errors.mjava which is worth 3 points.  The type_errors.mjava error
+handling is more difficult compared to others.
+
+Please submit the Extra Credit in a separate GradeScope link named **"Project 3
+Extra Credit"** by **December 13 (Friday) 11:59 PM**, with Project 4.
 
 ### Appendix E: Obtaining the solution for Project 2
 
