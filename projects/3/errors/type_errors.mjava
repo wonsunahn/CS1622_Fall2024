@@ -1,0 +1,21 @@
+/* Type mismatch errors */
+program TypeErrors;
+class SomeClass
+{
+}
+class TestClass
+{
+    declarations
+        int x='Hello World';
+        SomeClass obj;
+    enddeclarations
+    method int main()
+    {
+        x := 1;
+        obj := 2;
+        x := x + 1;
+        x := obj + 1;
+        system.println(x);
+        return 0;
+    }
+}

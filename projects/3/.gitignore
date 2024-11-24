@@ -1,5 +1,9 @@
 diffs/
 outputs/
+line_diffs/
+line_outputs/
+error_diffs/
+error_outputs/
 doc/
 *.o
 lex.yy.c

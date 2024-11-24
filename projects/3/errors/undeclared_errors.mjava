@@ -1,0 +1,39 @@
+/* Undeclared variables and functions */
+program Undeclared;
+
+class JustFoo
+{
+	declarations
+		int x = 1;
+	enddeclarations
+	method void foo()
+	{
+	}
+}
+
+class TestClass
+{
+	declarations
+		int y = 2;
+		JustFoo justFoo;
+	enddeclarations
+	method void bar()
+	{
+	}
+	method int main()
+	{
+		x := 10;
+		y := 20;
+		JustFoo.x := 10;
+		JustFoo.y := 20;
+		justFoo.x := 10;
+		justFoo.y := 20;
+		foo();
+		bar();
+		JustFoo.foo();
+		JustFoo.bar();
+		justFoo.foo();
+		justFoo.bar();
+		return 0;
+	}
+}

@@ -1,0 +1,17 @@
+/* Array related errors */
+program ArrayErrors;
+class TestClass
+{
+    declarations
+        int[] x=int[10];
+        int y;
+        int[][] z=int[3][4];
+    enddeclarations
+    method int main()
+	{
+        x[1][2]:=3;
+        y[3]:=4;
+        z[5]:=1;
+        return 0;
+    }
+}

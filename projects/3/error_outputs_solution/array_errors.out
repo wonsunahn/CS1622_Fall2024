@@ -1,0 +1,3 @@
+[Semantic Error] line 12: array x accessed with an inappropriate number of dimensions.
+[Semantic Error] line 13: symbol y not an array so can't be indexed.
+[Semantic Error] line 14: array z accessed with an inappropriate number of dimensions.

@@ -1,0 +1,46 @@
+**************** SYMBOL TABLE ****************
+
+          Name       Kind Nest-Level Predefined       Type     Init-Node     Offset Dimensions  Arguments LLVMObject     LineNo
+
+  0 helloworld    program          1                                                                                          2
+  1     system      class          2        yes                                                                               0
+  2    println   function          3        yes                                                         1                     0
+  3       Test      class          2                                                                                          3
+  4       main   function          3                   int        BodyOp                                0                     4
+************* SYNTAX TREE PRINTOUT ***********
+
+  +-[STNode,0,"helloworld"]
+R-[ProgramOp]
+  |   +-[STNode,3,"Test"]
+  | +-[ClassDefOp]
+  | | |         +-[DUMMYnode]
+  | | |       +-[ReturnOp]
+  | | |       | +-[NUMNode,0]
+  | | |     +-[StmtOp]
+  | | |     | |     +-[DUMMYnode]
+  | | |     | |   +-[CommaOp]
+  | | |     | |   | +-[STRINGNode,36,"Hello World !!!"]
+  | | |     | | +-[RoutineCallOp]
+  | | |     | | | |   +-[DUMMYnode]
+  | | |     | | | | +-[SelectOp]
+  | | |     | | | | | | +-[DUMMYnode]
+  | | |     | | | | | +-[FieldOp]
+  | | |     | | | | |   +-[STNode,2,"println"]
+  | | |     | | | +-[VarOp]
+  | | |     | | |   +-[STNode,1,"system"]
+  | | |     | +-[StmtOp]
+  | | |     |   +-[DUMMYnode]
+  | | |   +-[BodyOp]
+  | | |   | +-[DUMMYnode]
+  | | | +-[MethodOp]
+  | | | | |     +-[DUMMYnode]
+  | | | | |   +-[TypeIdOp]
+  | | | | |   | +-[INTEGERTNode]
+  | | | | | +-[SpecOp]
+  | | | | | | +-[DUMMYnode]
+  | | | | +-[HeadOp]
+  | | | |   +-[STNode,4,"main"]
+  | | +-[BodyOp]
+  | |   +-[DUMMYnode]
+  +-[ClassOp]
+    +-[DUMMYnode]

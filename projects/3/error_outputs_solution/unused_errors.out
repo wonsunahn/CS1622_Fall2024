@@ -1,0 +1,4 @@
+[Semantic Error] line 5: symbol foo is not used anywhere.
+[Semantic Error] line 15: symbol y is not used anywhere.
+[Semantic Error] line 16: symbol obj2 is not used anywhere.
+[Semantic Error] line 21: symbol bar is not used anywhere.

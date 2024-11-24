@@ -1,0 +1,32 @@
+/* Duplicate declarations */
+program Redeclared;
+class SomeClass
+{
+	declarations
+		int x=1, y=2;
+		int x;
+	enddeclarations
+	method int main()
+	{
+		system.println(x);
+		system.println(y);
+		return 0;
+	}
+	method void foo(int a; int b)
+	{
+	}
+	method void bar(int a, b; int c, b)
+	{
+	}
+	method void foo(int a; int b)
+	{
+	}
+}
+
+class SomeClass
+{
+}
+
+class OtherClass
+{
+}

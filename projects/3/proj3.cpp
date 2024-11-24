@@ -115,8 +115,9 @@ int LookUp(int idx)
     // If this scope is empty, continue to next scope.
     if (it->bottom == -1)
       continue;
+    int scopeNestLevel = GetAttr(it->bottom, NEST_ATTR);
     for (int curIdx = it->bottom; curIdx <= it->top; curIdx++)
-      if (GetAttr(curIdx, NAME_ATTR) == idx)
+      if (GetAttr(curIdx, NEST_ATTR) == scopeNestLevel && GetAttr(curIdx, NAME_ATTR) == idx)
         return curIdx;
   }
   return -1;
@@ -131,9 +132,10 @@ int LookUpHere(int idx)
   if (scopeStack.empty() || scopeStack.back().bottom == -1)
     return -1;
 
+  int scopeNestLevel = GetAttr(scopeStack.back().bottom, NEST_ATTR);
   for (int curIdx = scopeStack.back().bottom; curIdx <= scopeStack.back().top; curIdx++)
   {
-    if (GetAttr(curIdx, NAME_ATTR) == idx)
+    if (GetAttr(curIdx, NEST_ATTR) == scopeNestLevel && GetAttr(curIdx, NAME_ATTR) == idx)
       return curIdx;
   }
 
@@ -220,7 +222,7 @@ std::string getNodeString(tree nd)
   case NUMNode:
     return "NUMNode(" + std::to_string(IntVal(nd)) + ")";
   default:
-    printf("DEBUG--Unprintable node kind %s\n", kind_name[NodeKind(nd)]);
+    printf("DEBUG--Unprintable node kind %d\n", NodeKind(nd));
     assert(0);
   }
 }
@@ -251,7 +253,7 @@ std::string getTypeString(tree nd)
   case DUMMYNode:
     return "void";
   default:
-    printf("DEBUG--Unprintable node kind %s\n", kind_name[NodeKind(nd)]);
+    printf("DEBUG--Unprintable node kind %d\n", NodeKind(nd));
     assert(0);
   }
 }
@@ -321,7 +323,7 @@ void STPrint(FILE *table, bool printLineNo)
             fprintf(table, "%11s", "no");
           break;
         case KIND_ATTR:
-          fprintf(table, "%11s", kind_name[attr_val - 1]);
+          fprintf(table, "%11s", kind_name[attr_val - VAR]);
           break;
         case DIMEN_ATTR:
           fprintf(table, "%11s", getDimensionsString((std::vector<int> *)attr_val).c_str());
@@ -381,10 +383,10 @@ void ErrorMessage(int type, int lineno, int idx)
     printf("symbol %s is undeclared.\n", getString(idx));
     break;
   case NOT_USED:
-    printf("variable %s is not used anywhere.\n", getString(idx));
+    printf("symbol %s is not used anywhere.\n", getString(idx));
     break;
   case TYPE_MISMATCH:
-    printf("symbol %s the type does not allow this operation.\n", getString(idx));
+    printf("type error related to symbol %s.\n", getString(idx));
     break;
   case ARGUMENTS_NUM:
     printf("function %s argument number is different from declared parameter number.\n", getString(idx));

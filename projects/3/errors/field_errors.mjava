@@ -1,0 +1,26 @@
+/* Class field related errors */
+program FieldErrors;
+class Rect
+{
+	declarations
+		int width=3, length=7;
+	enddeclarations
+}
+
+class TestClass
+{
+	declarations
+		int[] x=int[10];
+		Rect r;
+	enddeclarations
+	method int main()
+	{
+        x.width := 5;
+		x.length := 5;
+		x[1] := 5;
+		r.width := 5;
+		r.length := 5;
+        r[1] := 5;
+		return 0;
+	}
+}

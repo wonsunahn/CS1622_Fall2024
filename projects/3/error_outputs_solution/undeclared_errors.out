@@ -1,0 +1,6 @@
+[Semantic Error] line 25: symbol x is undeclared.
+[Semantic Error] line 28: symbol y is undeclared.
+[Semantic Error] line 30: symbol y is undeclared.
+[Semantic Error] line 31: symbol foo is undeclared.
+[Semantic Error] line 34: symbol bar is undeclared.
+[Semantic Error] line 36: symbol bar is undeclared.

@@ -1,0 +1,6 @@
+[Semantic Error] line 7: symbol x is previously redeclared.
+[Semantic Error] line 18: symbol b is previously redeclared.
+[Semantic Error] line 21: symbol foo is previously redeclared.
+[Semantic Error] line 26: symbol SomeClass is previously redeclared.
+[Semantic Error] line 15: symbol foo is not used anywhere.
+[Semantic Error] line 18: symbol bar is not used anywhere.

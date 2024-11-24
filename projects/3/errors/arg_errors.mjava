@@ -1,0 +1,16 @@
+/* Optional test case 2: function call argument mismatch */
+program ArgErrors;
+class TestClass
+{
+    method int func(int m, n)
+    {
+        /* nothing */	
+    }
+    method int main()
+    {
+        func(1);
+        func(1, 2);
+        func(1, 2, 3);
+        return 0;
+    }
+}

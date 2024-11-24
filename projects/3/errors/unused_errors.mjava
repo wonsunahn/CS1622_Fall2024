@@ -1,0 +1,31 @@
+/* Errors due to unused variables or functions */
+program Unused;
+class SomeClass
+{
+    method void foo()
+    {
+    }
+    method void bar()
+    {
+    }
+}
+class TestClass
+{
+    declarations
+        int x=1, y=2;
+        SomeClass obj1, obj2;
+    enddeclarations
+    method void foo()
+    {
+    }
+    method void bar()
+    {
+    }
+    method int main()
+    {
+        x := 1;
+        foo();
+        obj1.bar();
+        return 0;
+    }
+}
