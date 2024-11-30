@@ -444,10 +444,22 @@ Extra Credit"** by **December 13 (Friday) 11:59 PM**, with Project 4.
 ### Appendix E: Obtaining the solution for Project 2
 
 If you were not able to complete Project 2, and you want to move on to Project
-3, I will provide a way forward.  Just message me on Teams.  I am going to
-provide to you the binary object file y.tab.o that you can just link into your
-program.  Now the caveat is that, if you use this file, you cannot attempt the
-extra credit.
+3, I will provide the y.tab.o object file generated from the reference
+grammar.y file.  Now the caveat is that, if you use this file, you cannot
+attempt the extra credit as the extra credit requires modifications to your own
+grammar.y.  Please use the files with this in mind.
+
+The relevant files are under the [project_2_files/](project_2_files/) folder in
+this repository.  You will find the y.tab.o and y.tab.h files generated from
+the solution grammar.y in that folder.  You will also find a grammar.y file
+with a comment "/* DO NOT GRADE */" at the top, to indicate to the GradeScope
+autograder to ignore that file.  Lastly, you find a modified Makefile that uses
+the provided y.tab.o and y.tab.h files instead of grammar.y to build the
+parser.  Copy over all these files to the root of your GitHub Classroom
+repository (overwriting any existing files).
+ 
+Note that you still need to implement table.cpp on your own.  But otherwise,
+this will free you from having to implement grammar.y.
 
 ## Grading
 
