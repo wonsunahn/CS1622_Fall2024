@@ -449,14 +449,14 @@ grammar.y file.  Now the caveat is that, if you use this file, you cannot
 attempt the extra credit as the extra credit requires modifications to your own
 grammar.y.  Please use the files with this in mind.
 
-The relevant files are under the [project_2_files/](project_2_files/) folder in
-this repository.  You will find the y.tab.o and y.tab.h files generated from
-the solution grammar.y in that folder.  You will also find a grammar.y file
-with a comment "/* DO NOT GRADE */" at the top, to indicate to the GradeScope
-autograder to ignore that file.  Lastly, you find a modified Makefile that uses
-the provided y.tab.o and y.tab.h files instead of grammar.y to build the
-parser.  Copy over all these files to the root of your GitHub Classroom
-repository (overwriting any existing files).
+The relevant files are under the [project_2_solution/](project_2_solution/)
+folder in this repository.  You will find the y.tab.o and y.tab.h files
+generated from the solution grammar.y in that folder.  You will also find a
+grammar.y file with a comment "/* DO NOT GRADE */" at the top, to indicate to
+the GradeScope autograder to ignore that file.  Lastly, you find a modified
+Makefile that uses the provided y.tab.o and y.tab.h files instead of grammar.y
+to build the parser.  Copy over all these files to the root of your GitHub
+Classroom repository (overwriting any existing files).
  
 Note that you still need to implement table.cpp on your own.  But otherwise,
 this will free you from having to implement grammar.y.
