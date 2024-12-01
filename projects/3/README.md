@@ -372,17 +372,28 @@ valgrind <command line>
 
 ### Appendix D: Extra Credit
 
-Before you attempt the extra credit, you need to do some file updates.  Please
-sync your forked GitHub Classroom repository with the upstream changes I made
-to enable the extra credit.  All you need to do is click on the Sync Fork
-button on your repository main Code page shown by the red arrow in the below
-image:
+Before you attempt the extra credit, you need to do some file updates if you
+forked your repository before I did the patch (which is the most of you).  I
+have created a pull request in each of your repositories for the updates.  You
+can access the pull request by clicking on the "Pull Requests" tab on your
+GitHub.com page as shown below:
 
-![Sync Fork](imgs/sync_fork.png "The Sync Fork button.")
+![Pull Request](imgs/pull_request.png "The pull request.")
 
-It should work without a hitch, but just in case, make sure that your
-STAddPredefined() implementation code in proj3.cpp remains intact.  If not, you
-can easily revive the code from your immediate previous version.
+If you don't see a pull request, then that means you forked your repository
+late and the updates are already applied, so no further action needed.  If you
+see the "GitHub Classroom: Sync Assignment" pull request, click on it to get
+the page below:
+
+![Merge Pull Request](imgs/pull_request_merge.png "Merge the pull request.")
+
+If you wish, review the "Files changed" tab to review the changes that are
+ready to be merged in.  If you see merge conflicts instead of the "This branch
+has no conflicts with the base branch" message with the green checkmark, you
+may have to do some standard conflict resolution, but most likely you will see
+no conflicts.  If there are no conflicts and you are satisfied, please click on
+the big green "Merge pull request" button at the bottom.  Then click on the
+"Confirm merge" button to finalize the merge.
 
 The following folders are relevant to the extra credit:
 
