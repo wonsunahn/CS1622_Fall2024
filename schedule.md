@@ -65,15 +65,25 @@ CS1622 Compiler Design
       * Recursive
       * Nonrecursive (table driven)
       * Look ahead
-    * Parse Table Construction
-      * First Set
-      * Follow Set
-      * Dealing with conflicts
 
 * ASSIGNMENTS DUE:
   * Homework 1 (Thursday)
 
 ## WEEK 5 (Week of 23 SEP)
+
+* TOPICS:
+  * LL Parser Parse Table Construction
+    * First Set
+    * Follow Set
+    * Dealing with conflicts
+
+* ASSIGNMENTS DUE:
+  * Project 1 (Thursday)
+
+* ASSIGNMENTS RELEASED:
+  * Homework 2 (Thursday)
+
+## WEEK 6 (Week of 30 SEP)
 
 * READINGS: Textbook, Chapters 4.5-4.6
 
@@ -86,19 +96,26 @@ CS1622 Compiler Design
     * Viable Prefix
     * LR(0) items
     * Action and Goto Tables
-  * Parse Table Construction
+
+* ASSIGNMENTS RELEASED:
+  * Homework 3 (Thursday)
+  * Project 2 (Thursday)
+
+## WEEK 7 (Week of 7 OCT)
+
+* TOPICS:
+  * LR Parser Parse Table Construction
     * DFA Construction
       * Closure function
       * Goto function
     * Building Action and Goto Tables from DFA
 
 * ASSIGNMENTS DUE:
-  * Project 1 (Thursday)
-
-* ASSIGNMENTS RELEASED:
   * Homework 2 (Thursday)
 
-## WEEK 6 (Week of 30 SEP)
+## WEEK 8 (Week of 14 OCT)
+
+* Tuesday: NO CLASS (Fall Break)
 
 * READINGS: Textbook, Chapters 4.7-4.9
 
@@ -111,47 +128,6 @@ CS1622 Compiler Design
     * LALR(k)
       * State merging
     * Comparison between different parsers
-  * YACC Tool
-    * Shift-reduce conflicts
-    * Reduce-reduce conflicts
-    * Semantic Actions
-    * Error Recovery
-    * LR Table Compaction
-
-* ASSIGNMENTS RELEASED:
-  * Homework 3 (Thursday)
-  * Project 2 (Thursday)
-
-## WEEK 7 (Week of 7 OCT)
-
-* READINGS: Textbook, Chapters 2.7, 6.4.3, 6.5-6.5.2
-
-* TOPICS:
-  * Semantic Analysis
-    * Static scope / Dynamic scope
-    * Symbol Table
-    * Semantic of Arrays
-    * Type Checking
-
-* ASSIGNMENTS DUE:
-  * Homework 2 (Thursday)
-
-## WEEK 8 (Week of 14 OCT)
-
-* Tuesday: NO CLASS (Fall Break)
-
-* READINGS: Textbook, Chapters 5.1-5.2.4, 5.5
-
-* TOPICS:
-  * Syntax Directed Translation
-    * Attribute Grammar
-    * Synthesized Attribute / Inherited Attribute
-    * Syntax Directed Definition
-    * Syntax Directed Translation Scheme
-    * Left-attributed Grammar
-    * Syntax Directed Translation Scheme Implementation
-      * Bottom-up Parsing
-      * Top-down Parsing
 
 * ASSIGNMENTS DUE:
   * Homework 3 (Thursday)
@@ -177,6 +153,50 @@ CS1622 Compiler Design
 
 ## WEEK 10 (Week of 28 OCT)
 
+* TOPICS:
+  * YACC Tool
+    * Shift-reduce conflicts
+    * Reduce-reduce conflicts
+    * Semantic Actions
+    * Error Recovery
+    * LR Table Compaction
+
+## WEEK 11 (Week of 4 NOV)
+
+* Tuesday: Remote Class on Zoom (Election Day)
+
+* READINGS: Textbook, Chapters 2.7, 6.4.3, 6.5-6.5.2
+
+* TOPICS:
+  * Semantic Analysis
+    * Static scope / Dynamic scope
+    * Symbol Table
+    * Semantic of Arrays
+    * Type Checking
+
+* ASSIGNMENTS DUE:
+  * Project 2 (Thursday)
+
+* ASSIGNMENTS RELEASED:
+  * Project 4 (Thursday)
+
+## WEEK 12 (Week of 11 NOV)
+
+* READINGS: Textbook, Chapters 5.1-5.2.4, 5.5
+
+* TOPICS:
+  * Syntax Directed Translation
+    * Attribute Grammar
+    * Synthesized Attribute / Inherited Attribute
+    * Syntax Directed Definition
+    * Syntax Directed Translation Scheme
+    * Left-attributed Grammar
+    * Syntax Directed Translation Scheme Implementation
+      * Bottom-up Parsing
+      * Top-down Parsing
+
+## WEEK 13 (Week of 18 NOV)
+
 * READINGS: Textbook, Chapters 6 intro, 6.2, 6.3.4-6.3.6, 6.4
 
 * TOPICS:
@@ -193,84 +213,28 @@ CS1622 Compiler Design
       * Processing Statements
       * Processing Array references
 
-## WEEK 11 (Week of 4 NOV)
+## WEEK 14 (Week of 25 NOV)
 
-* Tuesday: Remote Class on Zoom (Election Day)
+* NO CLASS (Thanksgiving Break)
 
-* READINGS: Textbook, Chapters 1.6.6, 6.6-6.7, 7 intro, 7.1-7.3, 12.2.6
+* ASSIGNMENTS DUE:
+  * Project 3 (Tuesday)
 
-* TOPICS:
+## WEEK 15 (Week of 2 DEC)
+
+READINGS: Textbook, Chapters 1.6.6, 6.6-6.7, 7.4.2.-7.4.4, 8.4, 8.5.4, 9.2.1-9.2.3, 9.2.5, 9.3, 9.4
+
+TOPICS:
   * Code Generation Through Syntax Directed Translation (cont’d)
     * Processing Boolean Expressions
       * Short-Circuiting and non-L attributes
     * Handling non-L attributes
-      * Two-pass based approach
       * One-pass base approach using backpatching
-    * Runtime Management
-      * Concept of runtime environment / runtime code
-      * Static / stack / heap data management
-      * Stack data management
-        * Advantages / Disadvantages compared to static management
-        * Activation records (ARs)
-        * Frame pointer / stack pointer
-        * Calling convention and AR layout
-    * Runtime Code Generation
-      * Code for global / local / non-local variable access
-        * Nested procedure declarations
-      * Code of function calls and calling conventions
-        * Call by value, by reference, by name
-      * Buffer Overflow Attack
-      * Classes / Objects
-        * Member variables / member methods
-        * Virtual methods / non-virtual methods
-        * Dynamic dispatch / static dispatch
-
-* ASSIGNMENTS DUE:
-  * Project 2 (Thursday)
-
-* ASSIGNMENTS RELEASED:
-  * Project 4 (Thursday)
-
-## WEEK 12 (Week of 11 NOV)
-
-* READINGS: Textbook, Chapters 7.4-7.7
-
-* TOPICS:
-  * Garbage Collection
-    * Motivation
-    * Reachability and garbage
-    * Two GC schemes
-      * Reference Counting
-      * Tracing
-    * Reference Counting
-      * Circular data structures
-      * Advantages / Disadvantages
-    * Tracing
-      * Root objects
-      * Advantages / Disadvantages
-    * Comparison of different Tracing GC
-      * Mark-Sweep
-      * Semispace
-      * Incremental
-      * Generational
-
-* ASSIGNMENTS DUE:
-  * Project 3 (Thursday)
-
-## WEEK 13 (Week of 18 NOV)
-
-READINGS: Textbook, Chapters 7.4.2.-7.4.4, 8.4, 8.5.4, 9.2.1-9.2.3, 9.2.5, 9.3, 9.4
-
-TOPICS:
   * Code Optimization
-    * Data-related optimization
-      * Data layout, code layout
-    * Code-related optimization
-      * Different categories
-    * Local optimization
-      * Strength reduction
-      * Constant folding
-    * Global optimization
+    * Different types of code transformations
+      * Modify, delete, move, insert
+    * Local vs. global optimizations
+    * Intra-prodedural vs. inter-procedural optimizations
   * Control flow analysis
     * Basic block
     * Control flow graph
@@ -288,39 +252,22 @@ TOPICS:
     * Data flow framework implementation
       * Iterative refinement of values
       * Termination guarantee
-    * Global Constant Propagation
-    * Global Liveness Analysis
-
-## WEEK 14 (Week of 25 NOV)
-
-* NO CLASS (Thanksgiving Break)
-
-## WEEK 15 (Week of 2 DEC)
-
-* READINGS: Textbook, Chapters 8.6, 8.8, 8.9.1-8.9.2
-
-* TOPICS:
-  * Register Allocation
-    * Local register allocation
-      * Register spilling
-    * Global register allocation
-      * Graph coloring
-        * Live ranges
-        * Register interference graph
-        * Chaitin’s algorithm
-          * Optimality
-          * Spilling and retry
-        * Linear scan
-          * Live intervals
-          * Linear code layout
-        * ILP
-  * Instruction selection
-    * Importance of CISC
-    * Tree tiling
 
 ## WEEK 16 (Week of 9 DEC)
 
-* Tuesday: Midterm 2 Exam
+TOPICS:
+  * Two Global optimizations
+    * Global Constant Propagation
+    * Global Liveness Analysis
+
+* Wednesday 2:00 - 3:15 PM at IS 404 (same room): Midterm 2 Exam
+  * Steps:
+    1. Do TopHat attendance at start of class.  If no attendance, grade will not be counted.
+    2. Click on assignment "Midterm 2" on GradeScope (will appear at start of class).
+    3. Click on the "Start Assignment" button.  There will be a count down timer on the top right once you start.
+    4. Finish and submit the exam within 75 minutes.  You can submit multiple times.
+  * Exam is open book (Lecture slides, textbook, homeworks and projects are permitted).
+  * Exam is individual work (use of generative AI is banned).
 
 * ASSIGNMENTS DUE:
   * Project 4 (Friday)
