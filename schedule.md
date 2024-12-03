@@ -270,5 +270,6 @@ TOPICS:
   * Exam is individual work (use of generative AI is banned).
 
 * ASSIGNMENTS DUE:
-  * Project 4 (Friday)
+  * Project 4 (Tuesday)
+  * Project 3 Extra Credit (Tuesday)
 
