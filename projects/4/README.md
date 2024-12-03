@@ -17,7 +17,7 @@
 
 # Project 4: Code Generation
 
-DUE: December 13 (Friday), 2024 11:59 PM
+DUE: December 17 (Tuesday), 2024 11:59 PM
 
 Please accept Project 4 on **GitHub Classroom** using the following link: https://classroom.github.com/a/nrnOh3ul
 
