@@ -372,6 +372,8 @@ valgrind <command line>
 
 ### Appendix D: Extra Credit
 
+DUE: December 17 (Tuesday), 2024 11:59 PM
+
 Before you attempt the extra credit, you need to do some file updates if you
 forked your repository before I did the patch (which is the most of you).  I
 have created a pull request in each of your repositories for the updates.  You
