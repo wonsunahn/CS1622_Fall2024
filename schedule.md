@@ -258,10 +258,15 @@ TOPICS:
       * Dead Code Elimination
       * Register Allocation
 
+* ASSIGNMENTS RELEASED:
+  * Homework 4 (Tuesday)
+ 
 ## WEEK 16 (Week of 9 DEC)
 
 TOPICS:
-  
+  * Homework 4 review
+  * Midterm 2 review
+  * Project 4 review
 
 * Wednesday 2:00 - 3:15 PM at IS 404 (same room): Midterm 2 Exam
   * Steps:
@@ -271,6 +276,9 @@ TOPICS:
     4. Finish and submit the exam within 75 minutes.  You can submit multiple times.
   * Exam is open book (Lecture slides, textbook, homeworks and projects are permitted).
   * Exam is individual work (use of generative AI is banned).
+
+* ASSIGNMENTS DUE:
+  * Homework 4 (Tuesday)
 
 ## WEEK 16 (Week of 17 DEC)
 
