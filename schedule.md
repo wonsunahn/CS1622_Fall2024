@@ -252,13 +252,16 @@ TOPICS:
     * Data flow framework implementation
       * Iterative refinement of values
       * Termination guarantee
+  * Two Global optimizations
+    * Global Constant Propagation
+    * Global Liveness Analysis
+      * Dead Code Elimination
+      * Register Allocation
 
 ## WEEK 16 (Week of 9 DEC)
 
 TOPICS:
-  * Two Global optimizations
-    * Global Constant Propagation
-    * Global Liveness Analysis
+  
 
 * Wednesday 2:00 - 3:15 PM at IS 404 (same room): Midterm 2 Exam
   * Steps:
@@ -268,6 +271,10 @@ TOPICS:
     4. Finish and submit the exam within 75 minutes.  You can submit multiple times.
   * Exam is open book (Lecture slides, textbook, homeworks and projects are permitted).
   * Exam is individual work (use of generative AI is banned).
+
+## WEEK 16 (Week of 17 DEC)
+
+* No Final
 
 * ASSIGNMENTS DUE:
   * Project 4 (Tuesday)
