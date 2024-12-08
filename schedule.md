@@ -224,7 +224,7 @@ CS1622 Compiler Design
 
 READINGS: Textbook, Chapters 1.6.6, 6.6-6.7, 7.4.2.-7.4.4, 8.4, 8.5.4, 9.2.1-9.2.3, 9.2.5, 9.3, 9.4
 
-TOPICS:
+* TOPICS:
   * Code Generation Through Syntax Directed Translation (cont’d)
     * Processing Boolean Expressions
       * Short-Circuiting and non-L attributes
@@ -263,7 +263,7 @@ TOPICS:
  
 ## WEEK 16 (Week of 9 DEC)
 
-TOPICS:
+* TOPICS:
   * Homework 4 review
   * Midterm 2 review
   * Project 4 review
