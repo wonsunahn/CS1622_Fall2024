@@ -614,9 +614,18 @@ all 14 test cases, you can get a 120% for this project.
 ### Appendix E: Obtaining the solution for Project 3
 
 If you were not able to complete Project 3, and you want to move on to Project
-3, I will provide a way forward.  Just message me on Teams.  I am going to
-provide to you the binary object file y.tab.o that you can just link into your
-program.  
+4, I will provide the files necessary.  The relevant files are under the
+[project_3_solution/](project_3_solution/) folder in this repository.  You will
+find the y.tab.o and y.tab.h files generated from the solution grammar.y and
+also the solution proj3.o and semantic.o in that folder.  You will also find
+the files grammar.y, proj3.cpp, and semantic.cpp with a comment "/* DO NOT
+GRADE */" at the top, to indicate to the GradeScope autograder to not compile
+these files.  Lastly, you will find a modified Makefile that uses the provided
+files instead of the source files to build the compiler.  Copy over all these
+files to the root of your GitHub Classroom repository, overwriting existing
+files, and you are all set.
+ 
+Note that you still need to implement table.cpp on your own.  
 
 ## Grading
 
