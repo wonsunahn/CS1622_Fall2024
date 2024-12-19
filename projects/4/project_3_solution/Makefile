@@ -1,4 +1,4 @@
-CXXSOURCES = $(shell find . -not -path './examples/*' -and -not -path './proj3.cpp' -and -not -path './semantic.cpp' -name '*.cpp')
+CXXSOURCES = $(shell find . -not -path './examples/*' -and -not -path './project_3_solution/*' -and -not -path './table.cpp' -and -not -path './proj3.cpp' -and -not -path './semantic.cpp' -name '*.cpp')
 CSOURCES = $(shell find . -not -path './y.tab.c' -and -not -path './lex.yy.c' -name '*.c')
 #CSOURCES += y.tab.c
 HEADERS = $(shell find . -not -path './y.tab.h' -name '*.h')
@@ -29,7 +29,7 @@ build: codegen
 test: $(EXAMPLE_OUTPUTS) $(OUTPUTS) $(DIFFS)
 
 codegen: ${OBJ}
-	${CXX} ${CFLAGS} ${LLVMFLAGS} -o codegen y.tab.o proj3.o semantic.o ${OBJ} -lfl
+	${CXX} ${CFLAGS} ${LLVMFLAGS} -o codegen y.tab.o table.o proj3.o semantic.o ${OBJ} -lfl
 
 lex.yy.c: lex.l
 	$(FLEX) lex.l
@@ -53,11 +53,11 @@ examples_outputs/$(1:examples/%.cpp=%).codegen.ll: examples_outputs/$(1:examples
 	@echo "$$< > $$@"
 	-@$$< > $$@
 examples_outputs/$(1:examples/%.cpp=%).codegen.s: examples_outputs/$(1:examples/%.cpp=%).codegen.ll
-	@echo "clang -Wno-override-module -S -c $$< -o $$@"
-	-@clang -Wno-override-module -S -c $$< -o $$@
+	@echo "${CC} -Wno-override-module -S -c $$< -o $$@"
+	-@${CC} -Wno-override-module -S -c $$< -o $$@
 examples_outputs/$(1:examples/%.cpp=%).codegen.exe: examples_outputs/$(1:examples/%.cpp=%).codegen.s
-	@echo "clang $$< -o $$@"
-	-@clang $$< -o $$@
+	@echo "${CC} $$< -o $$@"
+	-@${CC} $$< -o $$@
 examples_outputs/$(1:examples/%.cpp=%).codegen.out: examples_outputs/$(1:examples/%.cpp=%).codegen.exe
 	@echo "$$< > $$@"
 	-@$$< > $$@
@@ -69,14 +69,14 @@ outputs/$(1:tests/%.mjava=%).ll: $(1) codegen
 	@echo "./codegen -v -o $$@ $(1) > outputs/$(1:tests/%.mjava=%).log"
 	-@./codegen -v -o $$@ $(1) > outputs/$(1:tests/%.mjava=%).log
 outputs/$(1:tests/%.mjava=%).s: outputs/$(1:tests/%.mjava=%).ll
-	@echo "clang -S -c $$< -o $$@"
-	-@clang -Wno-override-module -S -c $$< -o $$@
+	@echo "${CC} -S -c $$< -o $$@"
+	-@${CC} -Wno-override-module -S -c $$< -o $$@
 outputs/$(1:tests/%.mjava=%).o: outputs/$(1:tests/%.mjava=%).s
-	@echo "clang -c $$< -o $$@"
-	-@clang -c $$< -o $$@
+	@echo "${CC} -c $$< -o $$@"
+	-@${CC} -c $$< -o $$@
 outputs/$(1:tests/%.mjava=%).exe: outputs/$(1:tests/%.mjava=%).o
-	@echo "clang $$^ -o $$@"
-	-@clang $$^ -o $$@
+	@echo "${CC} $$^ -o $$@"
+	-@${CC} $$^ -o $$@
 ifneq ("$(wildcard tests/$(1:tests/%.mjava=%).in)","")
 outputs/$(1:tests/%.mjava=%).out: outputs/$(1:tests/%.mjava=%).exe
 	@echo "$$< < tests/$(1:tests/%.mjava=%).in > $$@"
